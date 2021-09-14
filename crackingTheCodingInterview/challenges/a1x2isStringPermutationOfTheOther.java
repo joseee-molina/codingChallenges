@@ -21,8 +21,26 @@ public class a1x2isStringPermutationOfTheOther {
         }
     }
 
-    public static void main(String[] args) {
-
+    public static boolean stringPermutationConstantSolution(String a, String b){
+        if(a.length()!=b.length()){
+            return false;
+        }
+        if(a.length()>128){
+            return false;
+        }
+        int[] characters = new int[128];
+        for(int i = 0 ; i<a.length();i++){
+            characters[a.charAt(i)]++;
+        }
+        for(int i = 0 ; i<b.length();i++){
+            characters[b.charAt(i)]--;
+            if(characters[b.charAt(i)]<0){
+                return false;
+            }
+        }
+        return true;
     }
+
+
 
 }
