@@ -9,6 +9,6 @@ public class a1x4PalindromePermutationTest extends a1x4PalindromePermutation {
     }
     @Test
     public void test2(){
-        assertTrue(isPermutationOfAPalindrome("Tact Coa"));
+        assertTrue(isPermutationOfAPalindrome("Tact xCoax"));
     }
 }

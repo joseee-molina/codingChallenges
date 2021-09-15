@@ -9,10 +9,10 @@ public class a1x4PalindromePermutation {
         int countOf1s = 0 ;
         fillHMWithCharCount(map,str);
         for(char c : map.keySet()){
-            System.out.println(c + " count " + map.get(c));
+            //System.out.println(c + " count " + map.get(c));
             int count = map.get(c);
             if(count==2) continue;
-            if(count==1) countOf1s++;
+            else if(count==1) countOf1s++;
             else{
                 return false;
             }
