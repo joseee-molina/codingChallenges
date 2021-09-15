@@ -4,16 +4,18 @@ public class a1x4PalindromePermutation {
 
     public static boolean isPermutationOfAPalindrome(String str){
         str = str.toLowerCase();
+        //System.out.println(str);
         HashMap<Character, Integer> map = new HashMap<>();
         int countOf1s = 0 ;
         for(char c : map.keySet()){
+            //System.out.println(c + " count " + map.get(c));
             int count = map.get(c);
             if(count==1) countOf1s++;
             else{
                 return false;
             }
         }
-        return countOf1s==1;
+        return countOf1s<=1;
     }
     public static void fillHMWithCharCount(HashMap<Character, Integer> map, String str){
         for(int i = 0 ; i<str.length();i++){
