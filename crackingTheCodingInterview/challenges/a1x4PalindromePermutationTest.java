@@ -7,4 +7,8 @@ public class a1x4PalindromePermutationTest extends a1x4PalindromePermutation {
     public void test1(){
         assertTrue(isPermutationOfAPalindrome("Tact Coa"));
     }
+    @Test
+    public void test2(){
+        assertTrue(isPermutationOfAPalindrome("Tact Coa"));
+    }
 }
