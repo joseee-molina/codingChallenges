@@ -8,5 +8,6 @@ public class a1x5OneModificationAwayTest extends a1x5OneModificationAway {
         assertTrue(areOneAway("pales","pale"));
         assertTrue(areOneAway("pale", "bale"));
         assertFalse(areOneAway("pale","bake"));
+        assertTrue(areOneAway("b", ""));
     }
 }

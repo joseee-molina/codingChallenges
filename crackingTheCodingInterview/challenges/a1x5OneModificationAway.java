@@ -32,6 +32,8 @@ public class a1x5OneModificationAway {
                     result += Math.abs(amap.get(c) - bmap.get(c));
                 }
             }
+            System.out.println("number of differences: " + result);
+
             return result;
         }
         for(char c : bmap.keySet()){
@@ -42,6 +44,7 @@ public class a1x5OneModificationAway {
                 result += Math.abs(amap.get(c) - bmap.get(c));
             }
         }
+        System.out.println("number of differences: " + result);
         return result;
     }
 }
