@@ -22,20 +22,20 @@ public class a1x5OneModificationAway {
             if(bPointer+1<b.length() && aCurr==b.charAt(bPointer+1)){
                 result++;
                 bPointer+=2;
-                aPointer++;
+                aPointer+=2;
                 continue;
             }
             if(aPointer<a.length() && bCurr==a.charAt(aPointer+1)){
                 result++;
                 aPointer+=2;
-                bPointer++;
+                bPointer+=2;
                 continue;
             }
             result++;
             aPointer++;
             bPointer++;
         }
-        result+=Math.abs(aPointer-a.length() + bPointer-a.length());
+        //result+=Math.abs(aPointer-a.length() + bPointer-a.length());
         System.out.println("differences is: " + result);
         return result;
     }
