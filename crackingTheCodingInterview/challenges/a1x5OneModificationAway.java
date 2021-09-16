@@ -4,12 +4,42 @@ public class a1x5OneModificationAway {
     public static boolean areOneAway(String a, String b){
         if (a.equals(b)) return true;
         if(Math.abs(a.length()-b.length())>1) return false;
-        HashMap<Character,Integer> amap = new HashMap<>();
-        HashMap<Character,Integer> bmap = new HashMap<>();
-        fillHMwithString(amap,a);
-        fillHMwithString(bmap,b);
-        return countNumberOfDifferences(amap,bmap) <= 1;
+        return numOfDifferences(a,b)<=1;
     }
+    public static int numOfDifferences(String a, String b){
+        int result = 0;
+        int aPointer = 0 ;
+        int bPointer = 0;
+
+        while(aPointer<a.length() && bPointer<b.length()){
+            char aCurr = a.charAt(aPointer);
+            char bCurr = b.charAt(bPointer);
+            if(aCurr==bCurr){
+                aPointer++;
+                bPointer++;
+                continue;
+            }
+            if(bPointer+1<b.length() && aCurr==b.charAt(bPointer+1)){
+                result++;
+                bPointer+=2;
+                aPointer++;
+                continue;
+            }
+            if(aPointer<a.length() && bCurr==a.charAt(aPointer+1)){
+                result++;
+                aPointer+=2;
+                bPointer++;
+                continue;
+            }
+            result++;
+            aPointer++;
+            bPointer++;
+        }
+        result+=Math.abs(aPointer-a.length() + bPointer-a.length());
+        System.out.println("differences is: " + result);
+        return result;
+    }
+    /**
     public static void fillHMwithString(HashMap<Character,Integer> amap, String a){
         for(int  i = 0 ; i<a.length();i++){
             char c = a.charAt(i);
@@ -47,4 +77,5 @@ public class a1x5OneModificationAway {
         System.out.println("number of differences: " + result);
         return result;
     }
+     **/
 }
