@@ -8,5 +8,6 @@ public class a1x6stringCompressionTest extends a1x6stringCompression {
         //it's working wow
         System.out.println(compressString("aabcccccaaa"));
         assertEquals(compressString("abc"), "abc");
+        //how to make more efficient?
     }
 }
