@@ -7,6 +7,6 @@ public class a1x7rotateMatrix90DegreesTest extends a1x7rotateMatrix90Degrees {
         int[][] mat = new int [4][4];
         fillMatrixWithConsecutiveIntegers(mat);
         rotate90Degrees(mat);
-        
+        //passed this test aparently, what about nonsquarematrices?
     }
 }
