@@ -11,6 +11,7 @@ public class a1x8zeroRowAndColumnMatrixTest extends a1x8zeroRowAndColumnMatrix {
         mat1[0][0] = 0;
         mat1[4][2] = 0;
         makeZeroRowAndColumn(mat1);
+        //ok! it is working fine
     }
 
 
