@@ -8,10 +8,12 @@ public class a1x8zeroRowAndColumnMatrixTest extends a1x8zeroRowAndColumnMatrix {
         int[][] mat1 = new int[5][5];
         fillMatrixWithConsecutiveIntegers(mat1);
         mat1[2][3] = 0;
-        mat1[0][0] = 0;
+        //mat1[0][0] = 0;
         mat1[4][2] = 0;
         makeZeroRowAndColumn(mat1);
         //ok! it is working fine
+        //the true here is that it should be hard to do this in place, but i will think of an alternative later
+
     }
 
 
