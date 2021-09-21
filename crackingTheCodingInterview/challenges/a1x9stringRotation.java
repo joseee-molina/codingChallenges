@@ -7,4 +7,5 @@ public class a1x9stringRotation {
     }
     //this is a very very fast and clever solution!!
     //ok, now it should be working fine, but i need to take in count assumptions
+    //ok, time to move on to linked lists!!
 }
