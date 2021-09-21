@@ -8,6 +8,6 @@ public class a1x9stringRotationTest extends a1x9stringRotation {
         //passed the test
         assertFalse(isStringRotation("abcde","abcdf"));
         assertFalse(isStringRotation("abcde","abcd"));
-
+        //passed these tests
     }
 }

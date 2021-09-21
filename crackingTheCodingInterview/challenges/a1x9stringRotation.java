@@ -6,4 +6,5 @@ public class a1x9stringRotation {
         return text.contains(s2);
     }
     //this is a very very fast and clever solution!!
+    //ok, now it should be working fine, but i need to take in count assumptions
 }
