@@ -1,3 +1,5 @@
+package chap1;
+
 public class a1x6stringCompression {
 
     public static String compressString(String a){

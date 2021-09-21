@@ -1,3 +1,6 @@
+package chap1;
+
+import chap1.a1x4PalindromePermutation;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

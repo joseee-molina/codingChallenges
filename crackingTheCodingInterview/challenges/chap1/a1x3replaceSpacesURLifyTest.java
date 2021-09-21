@@ -1,3 +1,6 @@
+package chap1;
+
+import chap1.a1x3replaceSpacesURLify;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

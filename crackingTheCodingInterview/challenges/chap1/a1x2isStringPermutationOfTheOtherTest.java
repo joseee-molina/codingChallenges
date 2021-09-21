@@ -1,3 +1,6 @@
+package chap1;
+
+import chap1.a1x2isStringPermutationOfTheOther;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

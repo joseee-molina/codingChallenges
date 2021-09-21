@@ -1,3 +1,5 @@
+package chap1;
+
 public class a1x7rotateMatrix90Degrees {
     public static int[][] rotate90Degrees(int[][] matrix){
         printMatrix(matrix);

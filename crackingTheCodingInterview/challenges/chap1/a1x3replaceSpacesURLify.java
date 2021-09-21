@@ -1,3 +1,5 @@
+package chap1;
+
 public class a1x3replaceSpacesURLify {
     public static char[] replaceSpaces(char[] arr){
         moveWordsToTheRight(arr);

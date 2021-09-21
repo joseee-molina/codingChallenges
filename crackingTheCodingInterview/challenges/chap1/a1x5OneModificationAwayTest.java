@@ -1,4 +1,8 @@
+package chap1;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import chap1.a1x5OneModificationAway;
 import org.junit.Test;
 
 public class a1x5OneModificationAwayTest extends a1x5OneModificationAway {

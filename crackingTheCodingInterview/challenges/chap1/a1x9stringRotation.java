@@ -1,3 +1,5 @@
+package chap1;
+
 public class a1x9stringRotation {
 
     public static boolean isStringRotation(String s1, String s2){

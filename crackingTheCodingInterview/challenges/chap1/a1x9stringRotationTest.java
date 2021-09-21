@@ -1,4 +1,8 @@
+package chap1;
+
 import static org.junit.jupiter.api.Assertions.*;
+
+import chap1.a1x9stringRotation;
 import org.junit.Test;
 
 public class a1x9stringRotationTest extends a1x9stringRotation {

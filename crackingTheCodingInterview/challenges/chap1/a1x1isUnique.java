@@ -1,3 +1,5 @@
+package chap1;
+
 import java.util.HashSet;
 
 public class a1x1isUnique {

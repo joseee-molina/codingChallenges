@@ -1,3 +1,5 @@
+package chap1;
+
 import java.util.*;
 
 public class a1x2isStringPermutationOfTheOther {
