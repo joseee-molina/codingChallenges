@@ -1,4 +1,5 @@
 package chap2;
+import java.util.HashSet;
 import java.util.Iterator;
 
 
@@ -10,7 +11,7 @@ public class DLList<Item> implements Iterable<Item> {
     //TODO Node Should be private class Node, but to make it easier to import and use, I will leave it like this
     //
     //OJO:
-    public class Node {
+    private class Node {
         public Node prev;
         public Item item;
         public Node next;
@@ -24,8 +25,8 @@ public class DLList<Item> implements Iterable<Item> {
 
     /* The first item (if it exists) is at sentinel.next. */
     //TODO: these two should also be private
-    public Node sentinel;
-    public int size;
+    private Node sentinel;
+    private int size;
 
     /** Creates an empty DLList. */
     public DLList() {
@@ -105,6 +106,23 @@ public class DLList<Item> implements Iterable<Item> {
         public boolean hasNext() {
             return bookmark.item != null;
         }
+    }
+
+
+    //-------- 2-1 remove duplicates of LinkedList
+    public void removeDuplicatesFromLinkedList(){
+        HashSet<Integer> set = new HashSet<>();
+        Node pointer = sentinel.next;
+        while(pointer!= sentinel){
+            int i = (int) pointer.item;
+            if(set.contains(i)){
+                pointer.prev.next = pointer.next;
+                pointer.next.prev = pointer.prev;
+            }
+            set.add(i);
+            pointer = pointer.next;
+        }
+
     }
 }
 
