@@ -14,5 +14,11 @@ public class DLListTest2x1 extends DLList {
         DLList dll2 = DLList.of(1,1,1,1,1,2);
         dll2.removeDuplicatesFromLinkedList();
         System.out.println(dll2.toString());
+        //edge cases
+        DLList dll3 = DLList.of();
+        dll3.removeDuplicatesFromLinkedList();
+        System.out.println(dll3.toString());
+        dll.addLast(1);
     }
+
 }
