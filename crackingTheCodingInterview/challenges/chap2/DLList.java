@@ -126,6 +126,9 @@ public class DLList<Item> implements Iterable<Item> {
 
     //--------- 2-2 return Kth to Last
     public Item returnKthToLast(int k){
+        if(k>size){
+            throw new IndexOutOfBoundsException();
+        }
         Node pointer = sentinel.next;
         int index = 0;
         while(index!=size-k){
