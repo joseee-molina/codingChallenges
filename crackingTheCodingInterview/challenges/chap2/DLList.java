@@ -142,7 +142,7 @@ public class DLList<Item> implements Iterable<Item> {
     public void remoreMiddleElement(){
         Node head = sentinel.next;
         int index = 0;
-        while(index<size()/2){
+        while(index<size()/2 -1){
             head=head.next;
             index++;
         }
