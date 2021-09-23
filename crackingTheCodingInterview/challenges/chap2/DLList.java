@@ -138,6 +138,18 @@ public class DLList<Item> implements Iterable<Item> {
         return pointer.item;
     }
 
+    //---------- 2-3 remove middle element in the list
+    public void remoreMiddleElement(){
+        Node head = sentinel.next;
+        int index = 0;
+        while(index<size()/2){
+            head=head.next;
+            index++;
+        }
+        head.next = head.next.next;
+        head.next.prev = head.prev;
+    }
+
 
 }
 
