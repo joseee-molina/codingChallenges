@@ -11,5 +11,8 @@ public class DLListTest2x4 extends DLList {
         System.out.println(dll.toString());
         dll.partition(5);
         System.out.println(dll.toString());
+        DLList dll2 = DLList.of(1,2,0);
+        dll.partition(1);
+        System.out.println(dll2.toString());
     }
 }
