@@ -57,6 +57,13 @@ public class DLList<Item> implements Iterable<Item> {
         size += 1;
     }
 
+    public void addFirst(Item item){
+        Node n = new Node (item, sentinel, sentinel.next);
+        n.prev.next = n;
+        n.next.prev = n;
+        size++;
+    }
+
     @Override
     public String toString() {
         String result = "";
@@ -151,7 +158,39 @@ public class DLList<Item> implements Iterable<Item> {
         head.next.prev = head;
         size--;
     }
+    //-------- 2-4 partition arount X: all elements less than x must come before all greater than or
+    //equal to x
 
+    public void partition(int partitionElement){
+        //I want to do this in O(N) time and O(1) space, so I will basically relocate the nodes
+        //This algorithm will have two parts, the first will be relocating the bigger to the right
+        //and thr second will be relocating the smaller to the left
+        relocate(partitionElement);
+    }
+
+    public void relocate(int partitionElement){
+        Node ptr = sentinel;
+
+        while(ptr == sentinel || !ptr.item.equals(partitionElement)){
+            if((int) ptr.next.item > partitionElement){
+                addLast(ptr.next.item);
+                ptr.next = ptr.next.next;
+                ptr.next.prev = ptr;
+
+            }
+            ptr=ptr.next;
+        }
+        while(ptr.next!=sentinel){
+            if((int) ptr.next.item < partitionElement){
+                addFirst(ptr.next.item);
+                ptr.next = ptr.next.next;
+                ptr.next.prev = ptr;
+                ptr=ptr.prev;
+                continue;
+            }
+            ptr=ptr.next;
+        }
+    }
 
 }
 
