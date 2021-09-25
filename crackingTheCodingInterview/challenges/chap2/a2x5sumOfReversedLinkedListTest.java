@@ -11,7 +11,7 @@ public class a2x5sumOfReversedLinkedListTest extends a2x5sumOfReversedLinkedList
         DLListPublic dll1 = DLListPublic.of(7,1,6);
         DLListPublic dll2 = DLListPublic.of(5,9,2);
 
-        System.out.println(sumOfReversedLinkedList(dll1,dll2));
+        assertEquals(sumOfReversedLinkedList(dll1,dll2).toString(), "2 1 9");
 
     }
 
