@@ -4,14 +4,14 @@ import java.util.Iterator;
 
 
 /**
- * A DLList is a list of integers. Like SLList, it also hides the terrible
+ * A DLListPublic is a list of integers. Like SLList, it also hides the terrible
  * truth of the nakedness within, but with a few additional optimizations.
  */
-public class DLList<Item> implements Iterable<Item> {
+public class DLListPublic<Item> implements Iterable<Item> {
     //TODO Node Should be private class Node, but to make it easier to import and use, I will leave it like this
     //
     //OJO:
-    private class Node {
+    public class Node {
         public Node prev;
         public Item item;
         public Node next;
@@ -25,19 +25,19 @@ public class DLList<Item> implements Iterable<Item> {
 
     /* The first item (if it exists) is at sentinel.next. */
     //TODO: these two should also be private
-    private Node sentinel;
-    private int size;
+    public Node sentinel;
+    public int size;
 
-    /** Creates an empty DLList. */
-    public DLList() {
+    /** Creates an empty DLListPublic. */
+    public DLListPublic() {
         sentinel = new Node(null, null, null);
         sentinel.next = sentinel;
         sentinel.prev = sentinel;
     }
 
-    /** Returns a DLList consisting of the given values. */
-    public static <Item> DLList<Item> of(Item... values) {
-        DLList<Item> list = new DLList<>();
+    /** Returns a DLListPublic consisting of the given values. */
+    public static <Item> DLListPublic<Item> of(Item... values) {
+        DLListPublic<Item> list = new DLListPublic<>();
         for (Item value : values) {
             list.addLast(value);
         }
@@ -83,7 +83,7 @@ public class DLList<Item> implements Iterable<Item> {
 
     /** Returns whether this and the given list or object are equal. */
     public boolean equals(Object o) {
-        DLList other = (DLList) o;
+        DLListPublic other = (DLListPublic) o;
         if (size() != other.size()) {
             return false;
         }
@@ -98,10 +98,10 @@ public class DLList<Item> implements Iterable<Item> {
     }
 
     public Iterator<Item> iterator() {
-        return new DLListIterator();
+        return new DLListPublicIterator();
     }
 
-    private class DLListIterator implements Iterator<Item> {
+    private class DLListPublicIterator implements Iterator<Item> {
         private Node bookmark = sentinel.next;
 
         public Item next() {
