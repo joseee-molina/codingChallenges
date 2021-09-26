@@ -192,7 +192,66 @@ public class DLList<Item> implements Iterable<Item> {
         }
     }
 
+    public boolean checkIfLinkedListIsPalindromeDoublyLinkedList(){
 
+        //CASE 1: Doubly linked list
+        //Having a beginning and last pointer, and checking if the elements are equal as we
+        //make them closer to the middle
+        //O(N) time, O(1) space
+
+        Node firstPointer = sentinel.next;
+        int firstIndex = 0 ;
+        int lastIndex = size-1 ;
+        Node lastPointer = sentinel.prev;
+
+        while(firstIndex<lastIndex){
+            if(firstPointer.item!=lastPointer.item){
+                return false;
+            }
+            firstPointer=firstPointer.next;
+            lastPointer = lastPointer.prev;
+            firstIndex++;
+            lastIndex--;
+        }
+        return true;
+    }
+    public Item get(int index) {
+        /**
+         * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+         * If no such item exists, returns null. Must not alter the deque!
+         */
+        if (size == 0) {
+            return null;
+        }
+        Node p = sentinel.next;
+        int n = 0;
+        while (n < index) {
+            if (p.next == sentinel) {
+                throw new IllegalArgumentException("index grater than size of List");
+            }
+            p = p.next;
+            n++;
+        }
+        return p.item;
+    }
+
+    public boolean checkIfLinkedListIsPalindromeSinglyLinkedList(){
+        //We can do in O(N^2) time and O(1) space or O(N) time and O(N) space
+
+        //First solution is just passing linkedist to array and doing first solution.
+        //Second, is by traversing the whole list for every node
+
+        int index = 0 ;
+        Node ptr1 = sentinel.next;
+        while (index<=size/2){
+            if(ptr1.item != get(size-1-index)){
+                return false;
+            }
+            ptr1 = ptr1.next;
+            index++;
+        }
+        return true;
+    }
 
 }
 

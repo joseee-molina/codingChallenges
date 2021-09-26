@@ -23,8 +23,5 @@ public class a2x5sumOfReversedLinkedListTest extends a2x5sumOfReversedLinkedList
         DLListPublic dll7 = DLListPublic.of(5);
         DLListPublic dll8 = DLListPublic.of(6);
         assertEquals(sumOfReversedLinkedList(dll7,dll8).toString(), "1 1");
-
     }
-
-
 }
