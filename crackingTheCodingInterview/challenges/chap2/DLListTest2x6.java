@@ -34,5 +34,4 @@ public class DLListTest2x6 extends DLList {
         dll2.addLast(1);
         assertFalse(dll2.checkIfLinkedListIsPalindromeSinglyLinkedList());
     }
-
 }
