@@ -4,7 +4,7 @@ import java.util.HashSet;
 
 public class a2x8LoopStartingPoint extends DLListPublic{
 
-    public Node LoopStartHere(DLListPublic dll){
+    public Node loopStartHere(DLListPublic dll){
 
         if(!hasALoop(dll)){
             return null;

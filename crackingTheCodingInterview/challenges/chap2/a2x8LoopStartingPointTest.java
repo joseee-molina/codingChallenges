@@ -4,10 +4,12 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class a2x8LoopStartingPointTest extends DLListPublic {
+public class a2x8LoopStartingPointTest extends a2x8LoopStartingPoint {
     @Test
     public void test1(){
-        
+        DLListPublic dll = DLListPublic.of(1,2,3,4);
+        dll.sentinel.prev.next = dll.sentinel.next.next;
+        System.out.println(loopStartHere(dll).item);
     }
 
 }
