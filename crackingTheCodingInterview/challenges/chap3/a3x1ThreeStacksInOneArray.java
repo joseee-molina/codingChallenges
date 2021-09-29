@@ -10,7 +10,9 @@ public class a3x1ThreeStacksInOneArray {
      * i think it would be a good solution and it would be pretty efficient, you can add and remove
      * elements in constant time, except when you need to resize
      * however, lets suppose you resize every 3n sizes, then you can distribute those into different
-     * buckets and then it would still be constant time
+     * buckets and then it would still be constant time.
+     *
+     * If someone sees this, i hope you have suggestions or thoughts about it!
      *
      */
 }
