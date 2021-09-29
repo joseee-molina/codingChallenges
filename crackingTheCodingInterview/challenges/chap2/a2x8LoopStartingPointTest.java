@@ -11,6 +11,7 @@ public class a2x8LoopStartingPointTest extends a2x8LoopStartingPoint {
         dll.sentinel.prev.next = dll.sentinel.next.next;
         System.out.println(loopStartHere(dll).item);
         loopStartHere(dll);
+        //am i on an infinite loop? The visualizer is not working?
     }
 
 }
