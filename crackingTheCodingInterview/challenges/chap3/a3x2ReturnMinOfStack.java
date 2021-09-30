@@ -10,7 +10,8 @@ public class a3x2ReturnMinOfStack {
      * Yes, by using a min heap! It can insert elements in log(n) time, but for sure that will
      * return the minimum value in constant time. Other than the heap, we also need the linked list
      * to keep track of the stack, so the pop and push would be done in log(N), and the return min
-     * would be done in constaant time
+     * would be done in constant time
+     * However, that is NOT constant time as expected
      *
      */
 }
