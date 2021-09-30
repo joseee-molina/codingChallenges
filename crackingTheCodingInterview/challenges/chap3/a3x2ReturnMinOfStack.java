@@ -11,7 +11,16 @@ public class a3x2ReturnMinOfStack {
      * return the minimum value in constant time. Other than the heap, we also need the linked list
      * to keep track of the stack, so the pop and push would be done in log(N), and the return min
      * would be done in constant time
+     *
      * However, that is NOT constant time as expected
+     *
+     * the best i can do is linear time? Well, I can have a min element that, whenever you push,
+     * it updates in linear time, but when you pop? that will be linear time if you wanna find out
+     * the min there. Is there a better way to do this?
+     *
+     * What if, every time that you call min after popping, you build the heap I really don't know
+     *
+     * 
      *
      */
 }
