@@ -20,7 +20,7 @@ public class a3x2ReturnMinOfStack {
      *
      * What if, every time that you call min after popping, you build the heap I really don't know
      *
-     * 
+     *
      *
      */
 }
