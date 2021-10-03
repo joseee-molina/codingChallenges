@@ -15,4 +15,42 @@ public class MyQueue<T> {
 
     public Stack<T> fillingStack;
     public Stack<T> flippingStack;
+
+    public MyQueue(){
+        fillingStack=new Stack<>();
+        flippingStack = new Stack<>();
+    }
+
+    public void add(T item){
+        fillingStack.add(item);
+    }
+
+    public T poll(){
+        fillFlippingStack();
+        T result = flippingStack.pop();
+        fillFillingStack();
+        flippingStack = new Stack<>();
+        return result;
+    }
+
+    public T peek(){
+        fillFlippingStack();
+        T result = flippingStack.peek();
+        fillFillingStack();
+        flippingStack=new Stack<>();
+        return result;
+    }
+
+    public void fillFlippingStack(){
+        while(!fillingStack.isEmpty()){
+            flippingStack.push(fillingStack.pop());
+        }
+    }
+
+    public void fillFillingStack(){
+        while(!flippingStack.isEmpty()){
+            fillingStack.push(flippingStack.pop());
+        }
+    }
+
 }
