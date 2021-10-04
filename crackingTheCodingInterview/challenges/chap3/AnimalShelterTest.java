@@ -20,10 +20,7 @@ public class AnimalShelterTest extends AnimalShelter {
         dll.removeFirst();
         dll.removeFirst();
     }
-    @Test
-    public void removeFirstDLLPublicTest(){
-
-    }
+    
     @Test
     public void AnimalShelterTest(){
 
