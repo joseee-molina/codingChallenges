@@ -115,6 +115,20 @@ public class DLListPublic<Item> implements Iterable<Item> {
         }
     }
 
+    public Item removeLast(){
+        Node last = sentinel.prev;
+        sentinel.prev.prev.next = sentinel;
+        sentinel.prev = sentinel.prev.prev;
+        return last.item;
+    }
+
+    public Item removeFirst(){
+        Node first = sentinel.next;
+        sentinel.next = sentinel.next.next;
+        sentinel.next.prev = sentinel;
+        return first.item;
+    }
+
 
     //-------- 2-1 remove duplicates of LinkedList
     public void removeDuplicatesFromLinkedList(){

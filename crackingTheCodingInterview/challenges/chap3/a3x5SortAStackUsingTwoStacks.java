@@ -40,5 +40,20 @@ public class a3x5SortAStackUsingTwoStacks {
         }
     }
 
+    public void printStack(Stack<Integer> stack){
+
+        Stack<Integer> helper = new Stack<>();
+
+        while (!stack.isEmpty()){
+            int curr = stack.pop();
+            System.out.println(curr);
+            helper.push(curr);
+        }
+        while(!helper.isEmpty()){
+            stack.push(helper.pop());
+        }
+
+    }
+
 
 }
