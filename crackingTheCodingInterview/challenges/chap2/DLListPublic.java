@@ -119,6 +119,7 @@ public class DLListPublic<Item> implements Iterable<Item> {
         Node last = sentinel.prev;
         sentinel.prev.prev.next = sentinel;
         sentinel.prev = sentinel.prev.prev;
+        size--;
         return last.item;
     }
 
@@ -126,6 +127,7 @@ public class DLListPublic<Item> implements Iterable<Item> {
         Node first = sentinel.next;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
+        size--;
         return first.item;
     }
 
