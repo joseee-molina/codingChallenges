@@ -10,18 +10,21 @@ import java.util.Stack;
 
 public class AnimalShelter extends DLListPublic {
     public class Animal{
+
         public Animal(){
 
         }
     }
     public class Cat extends Animal{
-        public Cat(){
-
+        public int id;
+        public Cat(int n){
+            id = n;
         }
     }
     public class Dog extends Animal{
-        public Dog(){
-
+        public int id;
+        public Dog(int n){
+            id = n;
         }
     }
 
@@ -34,32 +37,41 @@ public class AnimalShelter extends DLListPublic {
     }
 
     public Animal dequeueAny(){
-        return shelterList.removeLast();
+        Animal a = shelterList.removeLast();
+        System.out.println("ANimal :"+ a.toString());
+        return a;
     }
 
     public void push(Animal a){
-        shelterList.addFirst(a);
+        shelterList.addLast(a);
     }
 
-    public Animal dequeueDog(){
-        Node ptr = sentinel.prev;
+    public Dog dequeueDog(){
+        Node ptr = shelterList.sentinel.prev;
         while(!ptr.item.getClass().equals(Dog.class)){
             ptr = ptr.prev;
             if(ptr.equals(shelterList.sentinel)){
                 throw new IndexOutOfBoundsException();
             }
         }
+        ptr.prev.next = ptr.next;
+        ptr.next.prev = ptr.prev;
+        System.out.println("Dog: "+ (Dog) ptr.item);
         return (Dog) ptr.item;
     }
 
     public Animal dequeueCat(){
-        Node ptr = sentinel.prev;
+        Node ptr = shelterList.sentinel.prev;
         while(!ptr.item.getClass().equals(Cat.class)){
             ptr = ptr.prev;
             if(ptr.equals(shelterList.sentinel)){
                 throw new IndexOutOfBoundsException();
             }
         }
+        ptr.prev.next = ptr.next;
+        ptr.next.prev = ptr.prev;
+        System.out.println("Cat: "+ (Cat) ptr.item);
+
         return (Cat) ptr.item;
     }
 
