@@ -141,6 +141,7 @@ public class GraphTest {
         //g.addEdge(0,1);
         assertFalse(g.pathExistsa4x1(0,4));
         assertTrue(g.pathExistsa4x1(1,2));
+        //finished 4-1
     }
 
 
