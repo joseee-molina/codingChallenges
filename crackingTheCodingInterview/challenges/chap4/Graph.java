@@ -562,13 +562,21 @@ public class Graph implements Iterable<Integer> {
         if(from> adjLists.length || to>adjLists.length){
             return false;
         }
-        Stack<Integer> vertices = new Stack<>();
+        Stack<Integer> fringe = new Stack<>();
         HashSet<Integer> visited = new HashSet<>();
-        vertices.push(from);
-        while(!vertices.isEmpty()){
-            int curr = vertices.pop();
-
+        fringe.push(from);
+        while(!fringe.isEmpty()){
+            int curr = fringe.pop();
+            if(curr==to){
+                return true;
+            }
+            visited.add(curr);
+            for(int i : neighbors(curr)){
+                if(!visited.contains(i)){
+                    fringe.push(i);
+                }
+            }
         }
-
+        return false;
     }
 }
