@@ -129,5 +129,19 @@ public class GraphTest {
         assertEquals(expected3, path3);
     }
 
-    
+    //Adding test for the 4-1
+
+    @Test
+    public void test4x1CTCI(){
+        //System.out.println("TEST4");
+        Graph g = new Graph(5);
+        g.addEdge(0,2);
+        g.addEdge(2,3);
+        g.addEdge(1,2);
+        //g.addEdge(0,1);
+        assertFalse(g.pathExistsa4x1(0,4));
+        assertTrue(g.pathExistsa4x1(1,2));
+    }
+
+
 }
