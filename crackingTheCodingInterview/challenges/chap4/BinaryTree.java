@@ -37,8 +37,11 @@ public class BinaryTree<T> {
      */
 
     public static BinaryTree minimumBST(int[] nums){
-        BinaryTree result = new BinaryTree(new TreeNode(nums[(nums.length-1)/2]));
-        minBSTHelper(0, nums.length, nums.length/2 , nums.length/2 , nums,result.root);
+        int root = nums.length % 2 == 0 ? (nums.length-1)/2 -1 : (nums.length-1)/2;
+        BinaryTree result = new BinaryTree(new TreeNode(root));
+        int mid1 = nums.length/2 -1;
+        int mid2  =nums.length/2 +1;
+        minBSTHelper(0, nums.length, mid1,mid2  , nums,result.root);
         return result;
     }
 
@@ -46,14 +49,24 @@ public class BinaryTree<T> {
         if(low>high || low<0 || high> nums.length || middle1>middle2 || low>=high || curr ==null){
             return;
         }
-        if(low+(middle1-low)/2 >=0 && low+(middle1-low)/2< nums.length ){
-            curr.left = new TreeNode(nums[low+(middle1-low)/2]);
+        int left = low+(middle1-low)/2;
+        if(left >=0 && left< nums.length ){
+            curr.left = new TreeNode(nums[left]);
         }
-        if(middle2+(high-middle2)/2 >= 0 && middle2+(high-middle2)/2< nums.length){
-            curr.right = new TreeNode(nums[middle2+(high-middle2)/2]);
+        int right = middle2+(high-middle2)/2;
+        if(right >= 0 && right< nums.length){
+            curr.right = new TreeNode(nums[right]);
         }
-        minBSTHelper(low,middle1-1,low+(middle1-low)/2, low+(middle2-low)/2,nums,curr.left);
-        minBSTHelper(middle2+1,high,middle2+(high-middle2)/2, middle2+(high-middle1)/2,nums,curr.right);
+        int leftLow = low;
+        int leftHigh = middle1-1;
+        int leftMid1 = low+(middle1-low)/2;
+        int leftMid2 = low+(middle2-low)/2;
+        minBSTHelper(leftLow,leftHigh, leftMid1,leftMid2 ,nums,curr.left);
+        int rightLow = middle2;
+        int rightHigh = high;
+        int rightMid1 = middle2+(high-middle2)/2 +1;
+        int rightMid2 = middle2+(high-middle1)/2;
+        minBSTHelper(rightLow,rightHigh,rightMid1, rightMid2,nums,curr.right);
     }
 
     /* Returns true if the tree's left and right children are the same height
