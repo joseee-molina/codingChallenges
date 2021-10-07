@@ -1,5 +1,7 @@
 package chap4;
 
+import com.sun.source.tree.Tree;
+
 import java.util.ArrayList;
 public class BinaryTree<T> {
 
@@ -25,6 +27,33 @@ public class BinaryTree<T> {
             return 0;
         }
         return root.heightHelper();
+    }
+
+    /**
+     * 4-2 CTCI Minimum BST
+     * Given a sorted array of unique integers, build the binary tree
+     * with the minimum number of levels. This shouldn't bee
+     * too hard!
+     */
+
+    public static BinaryTree minimumBST(int[] nums){
+        BinaryTree result = new BinaryTree(new TreeNode(nums[(nums.length-1)/2]));
+        minBSTHelper(0, nums.length, nums.length/2 , nums.length/2 , nums,result.root);
+        return result;
+    }
+
+    public static void minBSTHelper(int low, int high, int middle1, int middle2, int[] nums, TreeNode curr){
+        if(low>high || low<0 || high> nums.length || middle1>middle2 || low>high){
+            return;
+        }
+        if(low+(middle1-low)/2 >=0 && low+(middle1-low)/2< nums.length ){
+            curr.left = new TreeNode(nums[low+(middle1-low)/2]);
+        }
+        if(middle2+(high-middle2)/2 >= 0 && middle2+(high-middle2)/2< nums.length){
+            curr.right = new TreeNode(nums[middle2+(high-middle2)/2]);
+        }
+        minBSTHelper(low,middle1-1,low+(middle1-low)/2, low+(middle2-low)/2,nums,curr);
+        minBSTHelper(middle2+1,high,middle2+(high-middle2)/2, middle2+(high-middle1)/2,nums,curr);
     }
 
     /* Returns true if the tree's left and right children are the same height
@@ -231,7 +260,6 @@ public class BinaryTree<T> {
             }
             return 1+Math.max(this.left.heightHelper(),this.right.heightHelper());
         }
-
-
     }
+
 }
