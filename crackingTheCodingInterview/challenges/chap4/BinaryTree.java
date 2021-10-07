@@ -43,7 +43,7 @@ public class BinaryTree<T> {
     }
 
     public static void minBSTHelper(int low, int high, int middle1, int middle2, int[] nums, TreeNode curr){
-        if(low>high || low<0 || high> nums.length || middle1>middle2 || low>high){
+        if(low>high || low<0 || high> nums.length || middle1>middle2 || low>=high || curr ==null){
             return;
         }
         if(low+(middle1-low)/2 >=0 && low+(middle1-low)/2< nums.length ){
@@ -52,8 +52,8 @@ public class BinaryTree<T> {
         if(middle2+(high-middle2)/2 >= 0 && middle2+(high-middle2)/2< nums.length){
             curr.right = new TreeNode(nums[middle2+(high-middle2)/2]);
         }
-        minBSTHelper(low,middle1-1,low+(middle1-low)/2, low+(middle2-low)/2,nums,curr);
-        minBSTHelper(middle2+1,high,middle2+(high-middle2)/2, middle2+(high-middle1)/2,nums,curr);
+        minBSTHelper(low,middle1-1,low+(middle1-low)/2, low+(middle2-low)/2,nums,curr.left);
+        minBSTHelper(middle2+1,high,middle2+(high-middle2)/2, middle2+(high-middle1)/2,nums,curr.right);
     }
 
     /* Returns true if the tree's left and right children are the same height
