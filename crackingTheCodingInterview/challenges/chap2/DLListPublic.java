@@ -131,6 +131,25 @@ public class DLListPublic<Item> implements Iterable<Item> {
         return first.item;
     }
 
+    public Item get(int index) {
+        /**
+         * Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
+         * If no such item exists, returns null. Must not alter the deque!
+         */
+        if (size == 0) {
+            return null;
+        }
+        Node p = sentinel.next;
+        int n = 0;
+        while (n < index) {
+            if (p.next == sentinel) {
+                throw new IllegalArgumentException("index grater than size of List");
+            }
+            p = p.next;
+            n++;
+        }
+        return p.item;
+    }
 
     //-------- 2-1 remove duplicates of LinkedList
     public void removeDuplicatesFromLinkedList(){
