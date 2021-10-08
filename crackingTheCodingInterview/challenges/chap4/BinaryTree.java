@@ -37,36 +37,19 @@ public class BinaryTree<T> {
      */
 
     public static BinaryTree minimumBST(int[] nums){
-        int root = nums.length % 2 == 0 ? (nums.length-1)/2 -1 : (nums.length-1)/2;
-        BinaryTree result = new BinaryTree(new TreeNode(root));
-        int mid1 = nums.length/2 -1;
-        int mid2  =nums.length/2 +1;
-        minBSTHelper(0, nums.length, mid1,mid2  , nums,result.root);
-        return result;
+        BinaryTree bst = new BinaryTree(minBSTHelper(nums,0,nums.length-1));
+        return bst;
     }
 
-    public static void minBSTHelper(int low, int high, int middle1, int middle2, int[] nums, TreeNode curr){
-        if(low>high || low<0 || high> nums.length || middle1>middle2 || low>=high || curr ==null){
-            return;
+    public static TreeNode minBSTHelper(int[] nums, int start, int end){
+        if(start>end){
+            return null;
         }
-        int left = low+(middle1-low)/2;
-        if(left >=0 && left< nums.length ){
-            curr.left = new TreeNode(nums[left]);
-        }
-        int right = middle2+(high-middle2)/2;
-        if(right >= 0 && right< nums.length){
-            curr.right = new TreeNode(nums[right]);
-        }
-        int leftLow = low;
-        int leftHigh = middle1-1;
-        int leftMid1 = low+(middle1-low)/2;
-        int leftMid2 = low+(middle2-low)/2;
-        minBSTHelper(leftLow,leftHigh, leftMid1,leftMid2 ,nums,curr.left);
-        int rightLow = middle2;
-        int rightHigh = high;
-        int rightMid1 = middle2+(high-middle2)/2 +1;
-        int rightMid2 = middle2+(high-middle1)/2;
-        minBSTHelper(rightLow,rightHigh,rightMid1, rightMid2,nums,curr.right);
+        int mid = (start+end)/2;
+        TreeNode n = new TreeNode(nums[mid]);
+        n.left = minBSTHelper(nums, start,mid-1);
+        n.right = minBSTHelper(nums,mid+1,end);
+        return n;
     }
 
     /* Returns true if the tree's left and right children are the same height
