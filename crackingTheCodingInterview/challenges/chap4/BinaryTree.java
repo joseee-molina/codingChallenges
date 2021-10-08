@@ -179,10 +179,10 @@ public class BinaryTree<T> {
        in professional settings as well as the rest of your labs and projects,
        we recommend that you keep your inner classes private. */
     static class TreeNode<T> {
-
-        private T item;
-        private TreeNode left;
-        private TreeNode right;
+        //TODO: should be private
+        public T item;
+        public TreeNode left;
+        public TreeNode right;
 
         TreeNode(T obj) {
             item = obj;
