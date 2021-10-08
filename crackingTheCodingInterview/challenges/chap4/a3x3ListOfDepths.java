@@ -14,6 +14,9 @@ public class a3x3ListOfDepths extends BinaryTree{
      * and so on.
      *
      */
+    public static void main(String[] args) {
+
+    }
 
     public ArrayList<DLListPublic<TreeNode>> NodesPerLevel(BinaryTree bt){
         TreeNode root = bt.root;
@@ -43,6 +46,16 @@ public class a3x3ListOfDepths extends BinaryTree{
                 }
             }
             list.add(nextList);
+        }
+    }
+
+    public void printListsPerLevel(ArrayList<DLListPublic<TreeNode>> list){
+        for(int i = 0 ; i< list.size();i++){
+            System.out.println("Depth "+i+":");
+            for(int j = 0 ; j<list.get(i).size;j++){
+                System.out.print(list.get(i).get(j).item+" ");
+            }
+            System.out.println();
         }
     }
 
