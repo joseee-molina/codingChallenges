@@ -10,6 +10,8 @@ public class BinaryTreeTest extends BinaryTree {
         int[] nums = {1,2,3};
         BinaryTree bst = minimumBST(nums);
         bst.printInorder();
+        int[] n2 = {3,3,3,4,5,5,5,7};
+        minimumBST(n2).printInorder();
     }
 
 }
