@@ -21,6 +21,6 @@ public class a3x3ListOfDepthsTest extends a3x3ListOfDepths {
         root.right = new TreeNode(8);
         ArrayList arr = nodesPerLevel(bt);
         printListsPerLevel(arr);
-        //It was very fun but weird exercisse
+        //It was very fun but weird exercise
     }
 }
