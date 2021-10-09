@@ -19,14 +19,14 @@ public class BinaryTree<T> {
         return root;
     }
 
-    /* Returns the height of the tree. */
-    public int height() {
+    /* Returns the height of the tree starting from a node. */
+    public int height(TreeNode n) {
         // TODO: YOUR CODE HERE
 
-        if(root==null){
+        if(n==null){
             return 0;
         }
-        return root.heightHelper();
+        return n.heightHelper();
     }
 
     /**

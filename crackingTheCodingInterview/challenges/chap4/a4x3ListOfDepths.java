@@ -6,7 +6,7 @@ import com.sun.source.tree.Tree;
 import java.util.ArrayList;
 import chap2.DLListPublic;
 
-public class a3x3ListOfDepths extends BinaryTree{
+public class a4x3ListOfDepths extends BinaryTree{
     /**
      * The idea is to have a list of nodes of the first depth, then, for every node at
      * the first depth, we're going to add their children in the next linked list,

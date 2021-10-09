@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class a3x3ListOfDepthsTest extends a3x3ListOfDepths {
+public class a4x3ListOfDepthsTest extends a4x3ListOfDepths {
     @Test
     public void test1(){
         BinaryTree bt = new BinaryTree(new TreeNode(1));
