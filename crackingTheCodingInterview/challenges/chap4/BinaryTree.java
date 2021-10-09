@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class BinaryTree<T> {
 
     public TreeNode<T> root;
-
+    public int size;
     public BinaryTree() {
         root = null;
     }
@@ -26,8 +26,27 @@ public class BinaryTree<T> {
         if(n==null){
             return 0;
         }
+
         return n.heightHelper();
     }
+
+    public int getSize(){
+        size=0;
+        getSizeHelper(root);
+        return size;
+    }
+
+    public void getSizeHelper(TreeNode root){
+        if(root.left!=null){
+            size++;
+            getSizeHelper(root.left);
+        }
+        if(root.right!=null){
+            size++;
+            getSizeHelper(root.right);
+        }
+    }
+
 
     /**
      * 4-2 CTCI Minimum BST
@@ -184,10 +203,12 @@ public class BinaryTree<T> {
         public TreeNode left;
         public TreeNode right;
 
+
         TreeNode(T obj) {
             item = obj;
             left = null;
             right = null;
+
         }
 
         TreeNode(T obj, TreeNode<T> left, TreeNode<T> right) {
@@ -239,6 +260,7 @@ public class BinaryTree<T> {
                 right.printInorder();
             }
         }
+
 
         // TODO: ADD HELPER METHODS HERE
         public int heightHelper(){
