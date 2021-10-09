@@ -16,7 +16,9 @@ public class a4x4CheckBalancedTest extends a4x4CheckBalanced {
         System.out.println(checkBalanced(t));
         root.right.right.right = new TreeNode(5);
         System.out.println(checkBalanced(t));
-
+        /**note: the complexity is nlogn, because we visit the
+         * all the nodes and for every node we do logn work
+         **/
     }
 
 }
