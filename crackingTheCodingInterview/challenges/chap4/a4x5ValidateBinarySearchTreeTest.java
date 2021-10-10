@@ -24,7 +24,17 @@ public class a4x5ValidateBinarySearchTreeTest extends a4x5ValidateBinarySearchTr
 
     @Test
     public void testisBSTEdgeCases(){
-        
+
+        TreeNode root = new TreeNode(0);
+        BinaryTree spindlyTree = new BinaryTree(root);
+        assertTrue(isBinarySearchTree(spindlyTree));
+        root.right=new TreeNode(3);
+        assertTrue(isBinarySearchTree(spindlyTree));
+        root.right.left = new TreeNode(2);
+        assertTrue(isBinarySearchTree(spindlyTree));
+        root.right.left.left=new TreeNode(-1);
+        assertFalse(isBinarySearchTree(spindlyTree));
+
     }
 
 }
