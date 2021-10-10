@@ -23,7 +23,7 @@ public class a4x4CheckBalancedTest extends a4x4CheckBalanced {
          * The getHeight Method can also return if subtree is unbalanced,
          * so we can modify that method and the solution will be much better!
          *
-         * 
+         *
          **/
     }
 
