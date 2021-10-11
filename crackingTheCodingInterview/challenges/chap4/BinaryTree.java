@@ -202,6 +202,8 @@ public class BinaryTree<T> {
         public T item;
         public TreeNode left;
         public TreeNode right;
+        //TODO: parent actually doesnt exist, its just for the 4-6 problem!!
+        public TreeNode parent;
 
 
         TreeNode(T obj) {
