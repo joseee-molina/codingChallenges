@@ -6,7 +6,6 @@ import java.util.HashSet;
 public class a4x7BuildOrderProblem {
 
     public ArrayList buildOrder(ArrayList<ArrayList> dependencies, ArrayList project){
-        ArrayList result = new ArrayList();
 
         HashSet currentDependencies = new HashSet();
         ArrayList path = new ArrayList();
@@ -23,7 +22,7 @@ public class a4x7BuildOrderProblem {
             }
         }
 
-        return result;
+        return path;
     }
 
     /**
