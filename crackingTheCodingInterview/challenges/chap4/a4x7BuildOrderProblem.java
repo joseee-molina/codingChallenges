@@ -9,17 +9,20 @@ public class a4x7BuildOrderProblem {
 
         HashSet currentDependencies = new HashSet();
         ArrayList path = new ArrayList();
-        fillAllInitialDependencies(currentDependencies, dependencies,project, path);
+        HashSet pathSet = new HashSet();
+
+        fillAllInitialDependencies(currentDependencies, dependencies,project, path,pathSet);
         HashSet nextDependencies = new HashSet();
         while(!currentDependencies.isEmpty()){
+            nextDependencies = new HashSet();
             for(int i = 0 ; i<dependencies.size(); i++){
-                nextDependencies = new HashSet();
-                if(currentDependencies.contains(dependencies.get(i).get(0))){
+                if(currentDependencies.contains(dependencies.get(i).get(0)) && !pathSet.contains(dependencies.get(i).get(1))){
                     nextDependencies.add(dependencies.get(i).get(1));
-                    path.add(dependencies.get(i).get(0));
+                    path.add(dependencies.get(i).get(1));
+                    pathSet.add(dependencies.get(i).get(1));
                 }
-                currentDependencies = nextDependencies;
             }
+            currentDependencies = nextDependencies;
         }
 
         return path;
@@ -30,7 +33,7 @@ public class a4x7BuildOrderProblem {
      * worrying about other dependencies
      *
      */
-    public void fillAllInitialDependencies(HashSet currentDependencies, ArrayList<ArrayList> dependencies, ArrayList project, ArrayList path){
+    public void fillAllInitialDependencies(HashSet currentDependencies, ArrayList<ArrayList> dependencies, ArrayList project, ArrayList path, HashSet pathset){
         HashSet dependentDependenciesSet = new HashSet();
         for(int i = 0 ; i<dependencies.size() ; i++){
             dependentDependenciesSet.add(dependencies.get(i).get(1));
@@ -39,6 +42,7 @@ public class a4x7BuildOrderProblem {
             if(!dependentDependenciesSet.contains(project.get(i))){
                 currentDependencies.add(project.get(i));
                 path.add(project.get(i));
+                pathset.add(project.get(i));
             }
         }
     }
