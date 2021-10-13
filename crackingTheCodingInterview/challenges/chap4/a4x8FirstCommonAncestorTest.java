@@ -18,8 +18,7 @@ public class a4x8FirstCommonAncestorTest extends a4x8FirstCommonAncestor {
         root.left.right.left.right = new TreeNode(7);
         TreeNode n1 = root.left.right.right;
         TreeNode n2 = root.left.right.left.right;
-
-        getFirstCommonAncestor(n1,n2,bt);
+        System.out.println(getFirstCommonAncestor(n1,n2,bt).item);
 
     }
 
