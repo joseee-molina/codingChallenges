@@ -14,7 +14,8 @@ public class a4x8FirstCommonAncestor extends BinaryTree{
      * using a traversal
      */
 
-    public TreeNode getFirstCommonAncestor(TreeNode n1, TreeNode n2){
+    public TreeNode getFirstCommonAncestor(TreeNode n1, TreeNode n2, BinaryTree bt){
+        setParents(bt.root);
         int h1 = height(n1);
         int h2 = height(n2);
         TreeNode ptr1 = n1;
@@ -42,6 +43,17 @@ public class a4x8FirstCommonAncestor extends BinaryTree{
             n2 = n2.parent;
         }
         return n1;
+    }
+
+    public void setParents(TreeNode n){
+        if(n.left!=null){
+            n.left.parent = n;
+            setParents(n.left);
+        }
+        if(n.right!=null){
+            n.right.parent = n;
+            setParents(n.right);
+        }
     }
 
 }
