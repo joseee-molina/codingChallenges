@@ -16,25 +16,36 @@ public class a4x8FirstCommonAncestor extends BinaryTree{
 
     public TreeNode getFirstCommonAncestor(TreeNode n1, TreeNode n2, BinaryTree bt){
         setParents(bt.root);
-        int h1 = height(n1);
-        int h2 = height(n2);
+        int h1 = heightFromRootToNode(n1);
+        int h2 = heightFromRootToNode(n2);
         TreeNode ptr1 = n1;
         TreeNode ptr2 = n2;
         if(h1>h2){
-            getThisNodeUpNLevels(ptr2, h1-h2);
+            ptr1 =getThisNodeUpNLevels(ptr1, h1-h2);
         }
         else{
-            getThisNodeUpNLevels(ptr1,h2-h1);
+            ptr2 =getThisNodeUpNLevels(ptr2,h2-h1);
         }
 
         return findCommonAncestorOfTwoNodeInSameLEvel(ptr1,ptr2);
     }
 
-    public void getThisNodeUpNLevels(TreeNode node, int n){
+    public int heightFromRootToNode(TreeNode n1){
+        int res = 0 ;
+        TreeNode ptr = n1;
+        while(ptr!=root){
+            ptr=ptr.parent;
+            res++;
+        }
+        return res-1;
+    }
+
+    public TreeNode getThisNodeUpNLevels(TreeNode node, int n){
         while(n>0){
             node = node.parent;
             n--;
         }
+        return node;
     }
 
     public TreeNode findCommonAncestorOfTwoNodeInSameLEvel(TreeNode n1, TreeNode n2){
