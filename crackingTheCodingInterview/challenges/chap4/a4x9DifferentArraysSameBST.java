@@ -49,11 +49,11 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
             //System.out.println(Arrays.toString(arr));
             //Print the array
             System.out.print("[");
-            for(int i = 0; i < arr.size() - 1; i++){
+            for(int i = 0; i < arr.size() -1; i++){
                 System.out.print(arr.get(i).item + " ");
             }
             if(arr.size() > 0)
-                System.out.print(arr.get(arr.size() - 1));
+                System.out.print(arr.get(arr.size() - 1).item);
             System.out.println("]");
             return;
         }
@@ -63,7 +63,7 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
             //Swap the elements at indices index and i
             int t = (int) arr.get(index).item;
             //arr.get(index) = arr.get(i);
-            arr.set(index,new TreeNode(i));
+            arr.set(index,arr.get(i));
             //arr.get(i) = t;
             arr.set(i,new TreeNode(t));
 
@@ -73,7 +73,7 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
             //Swap the elements back
             t = (Integer) arr.get(index).item;
             //arr[index] = arr[i];
-            arr.set(index,new TreeNode(i));
+            arr.set(index,arr.get(i));
             //arr[i] = t;
             arr.set(i,new TreeNode(t));
         }
