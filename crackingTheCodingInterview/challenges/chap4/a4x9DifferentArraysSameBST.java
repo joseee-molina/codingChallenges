@@ -44,13 +44,13 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
 
     }
 
-    private static void permuteHelper(ArrayList arr, int index){
+    private static void permuteHelper(ArrayList<TreeNode> arr, int index){
         if(index >= arr.size() - 1){ //If we are at the last element - nothing left to permute
             //System.out.println(Arrays.toString(arr));
             //Print the array
             System.out.print("[");
             for(int i = 0; i < arr.size() - 1; i++){
-                System.out.print(arr.get(i) + " ");
+                System.out.print(arr.get(i).item + " ");
             }
             if(arr.size() > 0)
                 System.out.print(arr.get(arr.size() - 1));
@@ -61,21 +61,21 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
         for(int i = index; i < arr.size(); i++){ //For each index in the sub array arr[index...end]
 
             //Swap the elements at indices index and i
-            int t = (int)arr.get(index);
+            int t = (int) arr.get(index).item;
             //arr.get(index) = arr.get(i);
-            arr.set(index,i);
+            arr.set(index,new TreeNode(i));
             //arr.get(i) = t;
-            arr.set(i,t);
+            arr.set(i,new TreeNode(t));
 
             //Recurse on the sub array arr[index+1...end]
             permuteHelper(arr, index+1);
 
             //Swap the elements back
-            t = (int)arr.get(index);
+            t = (Integer) arr.get(index).item;
             //arr[index] = arr[i];
-            arr.set(index,i);
+            arr.set(index,new TreeNode(i));
             //arr[i] = t;
-            arr.set(i,t);
+            arr.set(i,new TreeNode(t));
         }
     }
 
