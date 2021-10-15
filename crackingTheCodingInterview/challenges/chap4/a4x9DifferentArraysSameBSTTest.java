@@ -13,6 +13,11 @@ public class a4x9DifferentArraysSameBSTTest extends a4x9DifferentArraysSameBST {
         root.left=new TreeNode(1);
         root.right = new TreeNode(3);
         printAllPossibleArraysThatCreateSomeBinaryTree(bt);
+        /**
+         * It worked with the example in the CTCI book, so now let's
+         * try something more complicated.
+         */
+        
     }
 
 }
