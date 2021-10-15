@@ -24,10 +24,11 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
         ArrayList currentLevel = new ArrayList();
         ArrayList nextLevel = new ArrayList();
         currentLevel.add(bt.root);
-
+        ArrayList temporaryShuffleArr = new ArrayList();
         while(!currentLevel.isEmpty()){
             System.out.println();
-            permuteHelper(currentLevel,0);
+            temporaryShuffleArr = currentLevel;
+            permuteHelper(temporaryShuffleArr,0);
             System.out.println();
             for(int i = 0 ; i<currentLevel.size();i++){
                 TreeNode currNode = (TreeNode) currentLevel.get(i);
