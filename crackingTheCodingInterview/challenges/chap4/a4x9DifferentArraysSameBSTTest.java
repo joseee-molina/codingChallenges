@@ -12,7 +12,7 @@ public class a4x9DifferentArraysSameBSTTest extends a4x9DifferentArraysSameBST {
         BinaryTree bt = new BinaryTree(root);
         root.left=new TreeNode(1);
         root.right = new TreeNode(3);
-        printAllPossibleArraysThatCreateSomeBinaryTree(bt);
+        //printAllPossibleArraysThatCreateSomeBinaryTree(bt);
         /**
          * It worked with the example in the CTCI book, so now let's
          * try something more complicated.
@@ -21,7 +21,6 @@ public class a4x9DifferentArraysSameBSTTest extends a4x9DifferentArraysSameBST {
         root.right.right = new TreeNode(5);
         root.right.right.right=new TreeNode(6);
         bt.printInorder();
-
         printAllPossibleArraysThatCreateSomeBinaryTree(bt);
     }
 

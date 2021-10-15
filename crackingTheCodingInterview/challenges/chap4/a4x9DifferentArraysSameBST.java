@@ -21,13 +21,13 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
      */
 
     public void printAllPossibleArraysThatCreateSomeBinaryTree(BinaryTree bt){
-        ArrayList currentLevel = new ArrayList();
-        ArrayList nextLevel = new ArrayList();
+        ArrayList<TreeNode> currentLevel = new ArrayList();
+        ArrayList<TreeNode> nextLevel = new ArrayList();
         currentLevel.add(bt.root);
-        ArrayList temporaryShuffleArr = new ArrayList();
+        ArrayList<TreeNode> temporaryShuffleArr = new ArrayList();
         while(!currentLevel.isEmpty()){
             System.out.println();
-            temporaryShuffleArr = currentLevel;
+            copyFromTo(currentLevel,temporaryShuffleArr);
             permuteHelper(temporaryShuffleArr,0);
             System.out.println();
             for(int i = 0 ; i<currentLevel.size();i++){
@@ -41,6 +41,7 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
             }
             currentLevel = nextLevel;
             nextLevel = new ArrayList();
+            temporaryShuffleArr = new ArrayList<>();
         }
 
     }
@@ -77,6 +78,12 @@ public class a4x9DifferentArraysSameBST extends BinaryTree{
             arr.set(index,arr.get(i));
             //arr[i] = t;
             arr.set(i,new TreeNode(t));
+        }
+    }
+
+    public void copyFromTo(ArrayList from, ArrayList to){
+        for(int i = 0 ; i<from.size();i++){
+            to.add(from.get(i));
         }
     }
 
