@@ -20,7 +20,7 @@ public class a4x10CheckSubtreeOfAnotherTree extends BinaryTree{
 
         }
 
-        return checkSubtreeHelper(b1.left,b2) || checkSubtreeHelper(b2.right,b2);
+        return checkSubtreeHelper(b1.left,b2) || checkSubtreeHelper(b1.right,b2);
     }
 
     /**
