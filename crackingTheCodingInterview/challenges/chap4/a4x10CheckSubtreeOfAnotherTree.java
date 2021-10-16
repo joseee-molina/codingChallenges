@@ -23,11 +23,16 @@ public class a4x10CheckSubtreeOfAnotherTree extends BinaryTree{
         return checkSubtreeHelper(b1.left,b2) || checkSubtreeHelper(b2.right,b2);
     }
 
+    /**
+     *
+     * Checking if two trees are equal
+     */
+
     public boolean checkTreeEquality(TreeNode b1, TreeNode b2){
         if(!b1.equals(b2)){
             return false;
         }
-        
+
         if(b1==null && b2 == null){
             return true;
         }
