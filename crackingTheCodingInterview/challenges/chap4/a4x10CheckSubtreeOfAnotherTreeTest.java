@@ -15,6 +15,8 @@ public class a4x10CheckSubtreeOfAnotherTreeTest extends a4x10CheckSubtreeOfAnoth
         BinaryTree bt1 = new BinaryTree(root);
         root.left = new TreeNode(1);
         root.right=new TreeNode(2);
+        root.left.right=new TreeNode(3);
+        root.left.right=new TreeNode(4);
         /**
          * Subtree
          */
@@ -25,8 +27,7 @@ public class a4x10CheckSubtreeOfAnotherTreeTest extends a4x10CheckSubtreeOfAnoth
         /**
          * Checking equality
          */
-        //checkSubtree(bt1,bt2);
-        System.out.println(checkSubtree(bt1,bt2));
+        assertTrue(checkSubtree(bt1,bt2));
 
     }
 

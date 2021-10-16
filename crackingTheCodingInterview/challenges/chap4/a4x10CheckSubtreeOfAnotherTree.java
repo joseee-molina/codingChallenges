@@ -30,8 +30,10 @@ public class a4x10CheckSubtreeOfAnotherTree extends BinaryTree{
 
     public boolean checkTreeInequality(TreeNode b1, TreeNode b2){
 
-
-        if((b1==null && b2!=null) || (b2==null && b1!=null)){
+        if(b2==null && b1!=null){
+            return false;
+        }
+        if((b1==null && b2!=null)){
             return true;
         }
         if(b1==null && b2 == null){
