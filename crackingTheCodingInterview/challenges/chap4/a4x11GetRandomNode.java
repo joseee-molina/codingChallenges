@@ -23,7 +23,7 @@ public class a4x11GetRandomNode extends BinaryTree{
         Random randomGen = new Random(32);
         this.randNum = randomGen.nextInt(bt.size);
         getRandomNodeHelper(root,llst);
-        return
+        return llst.removeFirst();
     }
 
     private void getRandomNodeHelper(TreeNode node, LinkedList llst){
