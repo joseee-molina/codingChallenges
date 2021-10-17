@@ -14,8 +14,7 @@ public class a4x11GetRandomNodeTest extends a4x11GetRandomNode {
         root.left = new TreeNode(1);
         root.right = new TreeNode(2);
         root.left.left = new TreeNode(3);
-
-        System.out.println(getRandomNode(bt));
+        System.out.println(getRandomNode(bt).item);
 
     }
 }
