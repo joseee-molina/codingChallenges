@@ -23,6 +23,10 @@ public class a4x11GetRandomNode extends BinaryTree{
         Random randomGen = new Random(32);
         this.randNum = randomGen.nextInt(bt.size);
         getRandomNodeHelper(root,llst);
+        /**
+         * Basically, when the randNum is 0, we add that
+         * node to the linked lsit and
+         */
         return llst.removeFirst();
     }
 
@@ -30,11 +34,11 @@ public class a4x11GetRandomNode extends BinaryTree{
         if(randNum==0){
             llst.addFirst(node);
         }
-        if(node.left!=null){
+        if(node.left!=null && randNum>0){
             randNum--;
             getRandomNodeHelper(node.left,llst);
         }
-        if(node.right!=null){
+        if(node.right!=null && randNum>0){
             randNum--;
             getRandomNodeHelper(node.right,llst);
         }
