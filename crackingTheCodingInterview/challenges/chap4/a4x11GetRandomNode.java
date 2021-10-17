@@ -21,7 +21,8 @@ public class a4x11GetRandomNode extends BinaryTree{
         TreeNode root = bt.root;
         LinkedList<TreeNode> llst = new LinkedList<>();
         Random randomGen = new Random(32);
-        this.randNum = randomGen.nextInt(bt.size);
+        int size = bt.getSize();
+        this.randNum = randomGen.nextInt(size);
         getRandomNodeHelper(root,llst);
         /**
          * Basically, when the randNum is 0, we add that
