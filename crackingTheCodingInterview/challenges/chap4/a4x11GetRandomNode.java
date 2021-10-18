@@ -26,7 +26,8 @@ public class a4x11GetRandomNode extends BinaryTree{
         getRandomNodeHelper(root,llst);
         /**
          * Basically, when the randNum is 0, we add that
-         * node to the linked lsit and
+         * node to the linked list, and then just return
+         * at the end
          */
         return llst.removeFirst();
     }
