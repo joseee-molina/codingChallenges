@@ -11,8 +11,15 @@ public class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPat
 
         TreeNode root = new TreeNode(1);
         BinaryTree bt = new BinaryTree(root);
-        countNumberOfPathsThatAddUpTo(bt,1);
-        System.out.println(        countNumberOfPathsThatAddUpTo(bt,1));
+        assertEquals(1,countNumberOfPathsThatAddUpTo(bt,1));
+        root.left=new TreeNode(2);
+        root.left.left=new TreeNode(4);
+        root.right=new TreeNode(3);
+        root.right.right=new TreeNode(3);
+        root.right.left=new TreeNode(2);
+        assertEquals(countNumberOfPathsThatAddUpTo(bt,6),3);
+        assertEquals(countNumberOfPathsThatAddUpTo(bt,5),1);
+        countNumberOfPathsThatAddUpTo(bt,3);
     }
 
 }
