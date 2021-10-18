@@ -1,5 +1,8 @@
 package chap4;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
     /**
      * The problem is to find the number of paths that add up to a certain
@@ -15,12 +18,21 @@ public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
 
     public int countNumberOfPathsThatAddUpTo(BinaryTree bt, int n){
         numOfPAths = 0;
-        countNumberOfPathsHelper(bt.root,0,n);
+        countNumberOfPathsHelper(bt.root,0,n, new HashMap<>());
         return numOfPAths;
 
     }
 
-    private void countNumberOfPathsHelper(TreeNode node, int sum, int n){
+    private void countNumberOfPathsHelper(TreeNode node, int sum, int n, HashMap<TreeNode,Integer> visited){
+        if(visited.containsKey(node) && visited.get(node)>2){
+            return;
+        }
+        if(visited.containsKey(node)){
+            visited.put(node,visited.get(node)+1);
+        }
+        else{
+            visited.put(node,1);
+        }
         sum+=(int)node.item;
         /**
          * We add this to make sure we dont count more than needed in the leafs
@@ -29,12 +41,12 @@ public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
             numOfPAths++;
         }
         if(node.right!=null){
-            countNumberOfPathsHelper(node.right, sum, n);
-            countNumberOfPathsHelper(node.right,0,n);
+            countNumberOfPathsHelper(node.right, sum, n,visited);
+            countNumberOfPathsHelper(node.right,0,n,visited);
         }
         if(node.left!=null){
-            countNumberOfPathsHelper(node.left,sum,n);
-            countNumberOfPathsHelper(node.left,0,n);
+            countNumberOfPathsHelper(node.left,sum,n,visited);
+            countNumberOfPathsHelper(node.left,0,n,visited);
         }
     }
 

@@ -17,9 +17,10 @@ public class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPat
         root.right=new TreeNode(3);
         root.right.right=new TreeNode(3);
         root.right.left=new TreeNode(2);
+        countNumberOfPathsThatAddUpTo(bt,6);
         assertEquals(countNumberOfPathsThatAddUpTo(bt,6),3);
         assertEquals(countNumberOfPathsThatAddUpTo(bt,5),1);
-        countNumberOfPathsThatAddUpTo(bt,3);
+        assertEquals(countNumberOfPathsThatAddUpTo(bt,3),3);
     }
 
 }
