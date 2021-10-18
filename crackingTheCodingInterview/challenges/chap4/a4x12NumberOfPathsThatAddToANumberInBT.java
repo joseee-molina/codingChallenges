@@ -25,7 +25,7 @@ public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
         /**
          * We add this to make sure we dont count more than needed in the leafs
          */
-        if(sum==n && node.right!=null && node.left!=null){
+        if(sum==n){
             numOfPAths++;
         }
         if(node.right!=null){

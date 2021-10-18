@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPathsThatAddToANumberInBT {
+public class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPathsThatAddToANumberInBT {
 
     @Test
     public void test1(){
@@ -12,7 +12,7 @@ class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPathsThatA
         TreeNode root = new TreeNode(1);
         BinaryTree bt = new BinaryTree(root);
         countNumberOfPathsThatAddUpTo(bt,1);
-
+        System.out.println(        countNumberOfPathsThatAddUpTo(bt,1));
     }
 
 }
