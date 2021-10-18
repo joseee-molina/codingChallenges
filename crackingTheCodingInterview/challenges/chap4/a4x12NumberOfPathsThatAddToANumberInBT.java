@@ -11,7 +11,7 @@ public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
      * 3. Do the same starting from the child nodes of the respective node.
      */
 
-    int numOfPAths;
+    private int numOfPAths;
 
     public int countNumberOfPathsThatAddUpTo(BinaryTree bt, int n){
         numOfPAths = 0;
@@ -22,7 +22,10 @@ public class a4x12NumberOfPathsThatAddToANumberInBT extends BinaryTree{
 
     private void countNumberOfPathsHelper(TreeNode node, int sum, int n){
         sum+=(int)node.item;
-        if(sum==n){
+        /**
+         * We add this to make sure we dont count more than needed in the leafs
+         */
+        if(sum==n && node.right!=null && node.left!=null){
             numOfPAths++;
         }
         if(node.right!=null){

@@ -8,7 +8,11 @@ class a4x12NumberOfPathsThatAddToANumberInBTTest extends a4x12NumberOfPathsThatA
 
     @Test
     public void test1(){
-        
+
+        TreeNode root = new TreeNode(1);
+        BinaryTree bt = new BinaryTree(root);
+        countNumberOfPathsThatAddUpTo(bt,1);
+
     }
 
 }
