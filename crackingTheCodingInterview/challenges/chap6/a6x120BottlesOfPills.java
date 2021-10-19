@@ -9,7 +9,13 @@ public class a6x120BottlesOfPills {
      */
 
     /**
-     * My first idea is to put all the pills in the scale, and carefully take one
-     * by one, and take the one that is heavier.
+     * The solution is really really cool. How many pills does a bottle have?
+     * We don't know that fact, but what we know is that if we take a number
+     * of pills from the exceeding bottle, we know that that exceeding is because
+     * there was heavier pills there. So, in order to solve this problem, we can:
+     * 1. Take 1 pill from bottle 1, 2 from bottle 2 and so on until the 20th
+     * 2. Weigh the pills. The result of 1+2+...+20 should be 380, but there will
+     * e an exceeding, how much is the exceeding /10 is the bottle that we are
+     * looking for.
      */
 }
