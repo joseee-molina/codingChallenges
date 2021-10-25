@@ -1,6 +1,7 @@
 package chap6;
 
 import java.util.ArrayList;
+import java.util.concurrent.TransferQueue;
 
 public class a6x9100Lockers {
     /**
@@ -23,20 +24,19 @@ public class a6x9100Lockers {
          */
 
         ArrayList<Boolean> arr = new ArrayList<>();
-        fillArrayfromAtoB(1,100,arr);
+        for(int i = 0 ; i<100;i++){
+            arr.add(true);
+        }
+
         toggleArray(arr);
         return arr;
     }
 
-    public void fillArrayfromAtoB(int A, int B, ArrayList arr){
-        for(int i=A; i<=B; i++){
-            arr.add(i);
-        }
-    }
+
 
     public void toggleArray(ArrayList<Boolean> arr){
         for(int i = 1 ; i<arr.size();i++){
-            for(int j = 1; j<arr.size();i++){
+            for(int j = i; j<arr.size();j++){
                 if(j%i==0){
                     arr.set(j,!arr.get(j));
                 }
