@@ -25,7 +25,7 @@ public class a6x9100Lockers {
 
         ArrayList<Boolean> arr = new ArrayList<>();
         for(int i = 0 ; i<100;i++){
-            arr.add(true);
+            arr.add(false);
         }
 
         toggleArray(arr);
