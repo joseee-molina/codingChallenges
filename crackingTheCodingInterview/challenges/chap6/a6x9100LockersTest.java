@@ -15,5 +15,11 @@ public class a6x9100LockersTest extends a6x9100Lockers {
                 System.out.println(i);
             }
         }
+        /**
+         * So, the answer are the squares, but how?
+         * I think it is because these numbers all have an even number
+         * of prime factors, which make it just open and not closed.
+         * Yeah, it makes senese
+         */
     }
 }
