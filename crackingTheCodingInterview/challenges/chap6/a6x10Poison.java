@@ -9,6 +9,6 @@ public class a6x10Poison {
 
     /**
      * We can do a binary search and find the bottle in the 10th trial, or 70 days.
-     * Is that all?
+     * Is that all? No, there is a way to do this in 7 days, let me see!
      */
 }
