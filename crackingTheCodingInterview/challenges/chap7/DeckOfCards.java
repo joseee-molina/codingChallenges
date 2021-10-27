@@ -12,5 +12,5 @@ public class DeckOfCards <T> {
 }
 /**
  * We can create blackjack by extending the DeckOfCards class and also
- * even creating the blackjack cards extending the Card class
+ * even creating the blackjack cards extending the Card class.
  */
