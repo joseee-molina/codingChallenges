@@ -6,5 +6,7 @@ public class TheThousandChineseCharacters {
      * and will not upload a solution.
      *
      * Cheers!
+     * 很好!
      */
+
 }
