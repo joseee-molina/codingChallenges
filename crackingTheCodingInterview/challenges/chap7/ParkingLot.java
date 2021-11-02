@@ -6,11 +6,14 @@ import java.time.Duration;
 public class ParkingLot {
     int capacity;
     ParkingLotSpace[] places;
-    int charge;
+    double ratePerMinute;
+    int money;
 
-    public ParkingLot(int cap, ParkingLotSpace[] places){
+    public ParkingLot(int cap, ParkingLotSpace[] places, double ratePerMinute){
         capacity=cap;
         this.places=places;
+        this.ratePerMinute=ratePerMinute;
+        money=0;
     }
 
     /**
@@ -38,6 +41,8 @@ public class ParkingLot {
         Instant now = Instant.now();
         long secondsOccupied = now.getEpochSecond() -places[i].usedFrom.getEpochSecond();
         long minutesOccupied = secondsOccupied/60;
+        System.out.println("Please pay "+minutesOccupied*ratePerMinute);
+        money+=minutesOccupied*ratePerMinute;
     }
 
 
