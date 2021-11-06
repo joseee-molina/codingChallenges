@@ -27,9 +27,8 @@ public class ChatServer {
      * 2. openMEssage(Message m){} which will output the message m in the terminal.
      * 3. reply(Message m, String reply){} where you reply to some message.
      *
-     *
-     *
-     *
+     * Profile
+     * 1. changeName, email, ...
      *
      */
 }
