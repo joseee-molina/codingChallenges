@@ -20,6 +20,6 @@ public class ChatServer {
      * There must be some methods that are relevant:
      * 1. sendMessageTO(Friend a, String message){} where you send the "message" to "a"
      * 2. openMEssage(Message m){} which will output the message m in the terminal.
-     *
+     * 3. reply(Message m, String reply){} where you reply to some message.
      */
 }
