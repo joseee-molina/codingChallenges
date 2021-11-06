@@ -9,14 +9,16 @@ public class JigsawPiece {
      *
      */
 
-    int edge0;
     int edge1;
     int edge2;
     int edge3;
     int edge4;
 
     public JigsawPiece(int e1, int e2, int e3, int e4){
-
+        edge1=e1;
+        edge2=e2;
+        edge3=e3;
+        edge4=e4;
     }
 
     public boolean fitsWith(int edge1, int edge2){
@@ -26,7 +28,7 @@ public class JigsawPiece {
         if(small%4==0 && small+2==big){
             return true;
         }
-        if((small-1)%4==0 %% small+2==big){
+        if((small-1)%4==0 && small+2==big){
             return true;
         }
         return false;
