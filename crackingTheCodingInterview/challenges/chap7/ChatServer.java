@@ -21,14 +21,14 @@ public class ChatServer {
      *
      * Inbox
      *
-     * There must be an inbox where you have incoming messages.
-     *
+     * There must be an inbox where you have incoming messages. Maybe it can be a hashmap
      * 
      *
      * There must be some methods that are relevant:
      * 1. sendMessageToFriend(Friend a, String message){} where you send the "message" to "a"
      * 2. openMEssage(Message m){} which will output the message m in the terminal.
      * 3. reply(Message m, String reply){} where you reply to some message.
+     *
      *
      * These methods are for messages
      *
