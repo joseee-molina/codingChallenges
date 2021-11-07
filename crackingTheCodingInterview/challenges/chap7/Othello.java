@@ -34,4 +34,16 @@ public class Othello {
             System.out.println();
         }
     }
+
+    public void putAPiece(int i, int j, boolean isBlack){
+        if(board[i][j]!=0){
+            System.out.println("occupied place, choose another one");
+            return;
+        }
+
+        int piece = isBlack ? 2 : 1;
+
+        board[i][j] = piece;
+
+    }
 }
