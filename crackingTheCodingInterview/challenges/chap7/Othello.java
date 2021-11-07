@@ -44,6 +44,6 @@ public class Othello {
         int piece = isBlack ? 2 : 1;
 
         board[i][j] = piece;
-
+        //TODO: check adjacencies on the horizontal, vertical and diagonal
     }
 }
