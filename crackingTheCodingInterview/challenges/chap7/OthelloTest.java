@@ -15,6 +15,8 @@ public class OthelloTest extends Othello {
         g.printBoard();
         g.putAPiece(3,6,true);
         g.printBoard();
+        g.putAPiece(3,2,true);
+        g.printBoard();
     }
 
 }
