@@ -45,5 +45,35 @@ public class Othello {
 
         board[i][j] = piece;
         //TODO: check adjacencies on the horizontal, vertical and diagonal
+        //right
+        int wantedPiece = isBlack ? 2 : 1;
+        int wantedIndex = i;
+        for(int k = i+1; k<=8;k++) {
+            if (board[k][j] == wantedPiece) {
+                wantedIndex = k;
+                break;
+            }
+        }
+        flipPieces(i+1,wantedIndex,true,false);
+        
+    }
+
+    public void flipPieces(int i, int j, boolean horizontal, boolean diagonal){
+        if(horizontal){
+            if(j-i<=1){
+                //adjacent pieces, nothing to flip here
+                return;
+            }
+            for(int k = i ;k<=j;k++){
+                int curr = board[i][j];
+                if(curr==1){
+                    board[i][j]=2;
+                }
+                else{
+                    board[i][j]=1;
+                }
+            }
+        }
+
     }
 }
