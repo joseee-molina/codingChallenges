@@ -9,6 +9,8 @@ public class OthelloTest extends Othello {
     public void othelloTest1(){
         Othello g = new OthelloTest();
         g.printBoard();
+        g.putAPiece(3,5,false);
+        g.printBoard();
     }
 
 }

@@ -33,6 +33,8 @@ public class Othello {
             }
             System.out.println();
         }
+        System.out.println();
+
     }
 
     public void putAPiece(int i, int j, boolean isBlack){
@@ -48,29 +50,29 @@ public class Othello {
         //right
         int wantedPiece = isBlack ? 2 : 1;
         int wantedIndex = i;
-        for(int k = i+1; k<=8;k++) {
-            if (board[k][j] == wantedPiece) {
+        for(int k = i+1; k<8;k++) {
+            if (board[i][k] == wantedPiece) {
                 wantedIndex = k;
                 break;
             }
         }
-        flipPieces(i+1,wantedIndex,true,false);
-        
+        flipPieces(i,j,i+1,wantedIndex,true,false);
+
     }
 
-    public void flipPieces(int i, int j, boolean horizontal, boolean diagonal){
+    public void flipPieces(int column, int row, int i, int j, boolean horizontal, boolean diagonal){
         if(horizontal){
-            if(j-i<=1){
+            if(j-i<1){
                 //adjacent pieces, nothing to flip here
                 return;
             }
-            for(int k = i ;k<=j;k++){
-                int curr = board[i][j];
+            for(int k = i ;k<j;k++){
+                int curr = board[column][k];
                 if(curr==1){
-                    board[i][j]=2;
+                    board[column][k]=2;
                 }
                 else{
-                    board[i][j]=1;
+                    board[column][k]=1;
                 }
             }
         }
