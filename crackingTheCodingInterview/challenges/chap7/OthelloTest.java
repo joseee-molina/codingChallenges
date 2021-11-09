@@ -13,9 +13,18 @@ public class OthelloTest extends Othello {
         g.printBoard();
         g.putAPiece(4,2,false);
         g.printBoard();
-        g.putAPiece(3,6,true);
+        /*g.putAPiece(3,6,true);
         g.printBoard();
         g.putAPiece(3,2,true);
+        g.printBoard();
+        */
+        g.putAPiece(5,3,true);
+        g.printBoard();
+        g.putAPiece(2,3,true);
+        g.printBoard();
+        g.putAPiece(2,4,true);
+        g.printBoard();
+        g.putAPiece(5,4,true);
         g.printBoard();
     }
 

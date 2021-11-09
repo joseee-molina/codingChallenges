@@ -48,7 +48,7 @@ public class Othello {
         board[i][j] = piece;
         //TODO: check adjacencies on the horizontal, vertical and diagonal
         int wantedPiece = isBlack ? 2 : 1;
-        int wantedIndex = i;
+        int wantedIndex = j;
         // checking to the right of the board
         for(int k = j+1; k<8;k++) {
             if (board[i][k] == wantedPiece) {
@@ -66,8 +66,24 @@ public class Othello {
             }
         }
         flipPieces(i,j,wantedIndex+1,j,true,false);
-
-
+        // checking to the lower level
+        wantedIndex = i;
+        for(int k = i+1; k<8;k++){
+            if(board[k][j]==wantedPiece){
+                wantedIndex=k;
+                break;
+            }
+        }
+        flipPieces(i,j,i+1,wantedIndex,false,false );
+        // checking to thw upper level
+        wantedIndex = i;
+        for(int k = i-1; k>=0;k--){
+            if(board[k][j]==wantedPiece){
+                wantedIndex=k;
+                break;
+            }
+        }
+        flipPieces(i,j,wantedIndex+1,i,false,false );
     }
 
     public void flipPieces(int column, int row, int i, int j, boolean horizontal, boolean diagonal){
@@ -83,6 +99,20 @@ public class Othello {
                 }
                 else{
                     board[column][k]=1;
+                }
+            }
+        }
+        if(!horizontal && !diagonal){
+            if(Math.abs(i-j)<1){
+                return;
+            }
+            for(int k = i; k<j;k++){
+                int curr = board[k][row];
+                if(curr==1){
+                    board[k][row]=2;
+                }
+                else{
+                    board[k][row]=1;
                 }
             }
         }
