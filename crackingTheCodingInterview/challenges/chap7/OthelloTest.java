@@ -29,6 +29,7 @@ public class OthelloTest extends Othello {
         //these tests show that it is working for horizontal and vertical
         g.putAPiece(3,2,false);
         g.printBoard();
+        //worked horizontally
     }
 
 }
