@@ -30,6 +30,10 @@ public class OthelloTest extends Othello {
         g.putAPiece(3,2,false);
         g.printBoard();
         //worked horizontally
+        g.putAPiece(1,2,false);
+        g.printBoard();
+        
     }
+
 
 }
