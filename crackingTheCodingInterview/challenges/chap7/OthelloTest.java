@@ -32,7 +32,12 @@ public class OthelloTest extends Othello {
         //worked horizontally
         g.putAPiece(1,2,false);
         g.printBoard();
-        
+        //the above test is for diagonal down and it is working
+        g.putAPiece(0,1,true);
+        g.printBoard();
+        g.putAPiece(4,5,true);
+        g.printBoard();
+
     }
 
 

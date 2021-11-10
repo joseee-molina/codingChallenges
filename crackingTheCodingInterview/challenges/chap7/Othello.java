@@ -95,6 +95,16 @@ public class Othello {
         }
         flipPieces(i,j,i,wantedIndex, false,true);
 
+        //checking up left
+        wantedIndex=-2;
+        for(int k=1;i-k>=0 && j-k>=0; k++){
+            if(board[i-k][j-k]==wantedPiece){
+                wantedIndex=k;
+                break;
+            }
+        }
+        flipPieces(i-wantedIndex,j-wantedIndex,0,wantedIndex, false,true);
+
     }
 
     public void flipPieces(int column, int row, int i, int j, boolean horizontal, boolean diagonal){
