@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class OthelloTest extends Othello {
     @Test
-    public void othelloTest1(){
+    public void othelloHorizontalVerticalTest(){
         Othello g = new OthelloTest();
         g.printBoard();
         g.putAPiece(3,5,false);
@@ -30,15 +30,17 @@ public class OthelloTest extends Othello {
         g.putAPiece(3,2,false);
         g.printBoard();
         //worked horizontally
-        g.putAPiece(1,2,false);
-        g.printBoard();
-        //the above test is for diagonal down and it is working
-        g.putAPiece(0,1,true);
-        g.printBoard();
-        g.putAPiece(4,5,true);
-        g.printBoard();
-    
+    }
 
+    @Test
+    public void diagonalFlippingTest(){
+        Othello g = new Othello();
+        g.printBoard();
+        g.putAPiece(2,5,false);
+        g.printBoard();
+        g.putAPiece(5,2,false);
+        g.printBoard();
+        
     }
 
 
