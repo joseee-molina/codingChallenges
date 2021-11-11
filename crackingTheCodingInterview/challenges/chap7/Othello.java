@@ -105,6 +105,27 @@ public class Othello {
         }
         flipPieces(i-wantedIndex,j-wantedIndex,0,wantedIndex, false,true);
 
+        //checking down left
+        wantedIndex=0;
+        for(int k=1;k+i<8 && k+j<8; k++){
+            if(board[i+k][j-k]==wantedPiece){
+                wantedIndex=k;
+                break;
+            }
+        }
+       flipDiagonalLeftRight(i,j,wantedIndex, true);
+
+    }
+
+    public void flipDiagonalLeftRight(int column, int row, int howMany, boolean right){
+        if(right){
+            for(int k=1;k<howMany; k++){
+                int curr = board[column+k][row-k];
+                board[column+k][row-k] = curr ==1 ? 2 : 1;
+            }
+            return;
+        }
+
     }
 
     public void flipPieces(int column, int row, int i, int j, boolean horizontal, boolean diagonal){
@@ -138,6 +159,7 @@ public class Othello {
                 }
             }
         }
+
         if(!horizontal && !diagonal){
             if(Math.abs(i-j)<1){
                 return;
@@ -152,6 +174,5 @@ public class Othello {
                 }
             }
         }
-
     }
 }

@@ -37,6 +37,7 @@ public class OthelloTest extends Othello {
         g.printBoard();
         g.putAPiece(4,5,true);
         g.printBoard();
+    
 
     }
 
