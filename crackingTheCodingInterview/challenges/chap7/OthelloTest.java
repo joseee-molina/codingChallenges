@@ -40,7 +40,17 @@ public class OthelloTest extends Othello {
         g.printBoard();
         g.putAPiece(5,2,false);
         g.printBoard();
-        
+
+    }
+
+    @Test
+    public void multiTesting(){
+        Othello g = new Othello();
+        g.printBoard();
+        g.putAPiece(2,5,true);
+        g.putAPiece(5,2,true);
+        g.putAPiece(5,5,true);
+        g.printBoard();
     }
 
 
