@@ -59,7 +59,9 @@ public class OthelloTest extends Othello {
         g.putAPiece(5,3,false);
         g.putAPiece(2,2,true);
         g.printBoard();
-        //worked 
+        /**worked, now it is just a matter of adding som
+         * methods to check if there are spaces or if someone won
+         */
     }
 
 
