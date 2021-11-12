@@ -37,6 +37,34 @@ public class Othello {
 
     }
 
+    public boolean canContinuePlaying(){
+        for(int i = 0 ; i<8; i++){
+            for(int j = 0 ; j<8;j++){
+                if(board[i][j]==0){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean whiteWon(){
+        if(canContinuePlaying()){
+            throw new IllegalArgumentException();
+        }
+        int whiteCount= 0 ;
+        for(int i = 0 ; i<8; i++){
+            for(int j = 0 ; j<8;j++){
+                if(board[i][j]==1){
+                    whiteCount++;
+                }
+            }
+        }
+        if (whiteCount>64-whiteCount){
+            
+        }
+    }
+
     public void putAPiece(int i, int j, boolean isBlack){
         if(board[i][j]!=0){
             System.out.println("occupied place, choose another one");
