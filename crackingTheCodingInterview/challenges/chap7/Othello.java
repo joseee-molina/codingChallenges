@@ -60,7 +60,7 @@ public class Othello {
                 }
             }
         }
-        
+        return whiteCount>32;
     }
 
     public void putAPiece(int i, int j, boolean isBlack){
