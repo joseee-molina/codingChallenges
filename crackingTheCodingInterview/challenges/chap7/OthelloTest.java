@@ -59,6 +59,7 @@ public class OthelloTest extends Othello {
         g.putAPiece(5,3,false);
         g.putAPiece(2,2,true);
         g.printBoard();
+        //worked 
     }
 
 
