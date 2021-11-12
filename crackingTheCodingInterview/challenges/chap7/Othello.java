@@ -51,6 +51,9 @@ public class Othello {
         int wantedIndex = j;
         // checking to the right of the board
         for(int k = j+1; k<8;k++) {
+            if(board[i][k]==0){
+                break;
+            }
             if (board[i][k] == wantedPiece) {
                 wantedIndex = k;
                 break;
@@ -60,6 +63,9 @@ public class Othello {
         // checking to the left of the board
         wantedIndex=j;
         for(int k = j-1; k>=0;k--) {
+            if(board[i][k]==0){
+                break;
+            }
             if (board[i][k] == wantedPiece) {
                 wantedIndex = k;
                 break;
@@ -69,6 +75,9 @@ public class Othello {
         // checking to the lower level
         wantedIndex = i;
         for(int k = i+1; k<8;k++){
+            if(board[k][j]==0){
+                break;
+            }
             if(board[k][j]==wantedPiece){
                 wantedIndex=k;
                 break;
@@ -78,6 +87,9 @@ public class Othello {
         // checking to thw upper level
         wantedIndex = i;
         for(int k = i-1; k>=0;k--){
+            if(board[i][k]==0){
+                break;
+            }
             if(board[k][j]==wantedPiece){
                 wantedIndex=k;
                 break;
@@ -88,6 +100,9 @@ public class Othello {
         //checking low right
         wantedIndex=i;
         for(int k=1;k+i<8 && k+j<8; k++){
+            if(board[i][j]==0){
+                break;
+            }
             if(board[i+k][j+k]==wantedPiece){
                 wantedIndex=k;
                 break;
@@ -98,6 +113,9 @@ public class Othello {
         //checking up left
         wantedIndex=-2;
         for(int k=1;i-k>=0 && j-k>=0; k++){
+            if(board[i][k]==0){
+                break;
+            }
             if(board[i-k][j-k]==wantedPiece){
                 wantedIndex=k;
                 break;
@@ -108,6 +126,9 @@ public class Othello {
         //checking down left
         wantedIndex=0;
         for(int k=1;k+i<8 && j-k>=0; k++){
+            if(board[i][k]==0){
+                break;
+            }
             if(board[i+k][j-k]==wantedPiece){
                 wantedIndex=k;
                 break;
@@ -117,6 +138,9 @@ public class Othello {
         //checking up right
         wantedIndex=0;
         for(int k=1;i-k>=0 && j+k<8; k++){
+            if(board[i][k]==0){
+                break;
+            }
             if(board[i-k][j+k]==wantedPiece){
                 wantedIndex=k;
                 break;
