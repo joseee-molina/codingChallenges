@@ -73,4 +73,11 @@ public class CircularArray <T> implements Iterable<T> {
         }
     }
 
+    public void printArr(){
+        for(T i : arr){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+
 }
