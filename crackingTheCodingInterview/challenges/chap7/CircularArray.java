@@ -5,23 +5,26 @@ import java.util.Iterator;
 
 public class CircularArray <T> implements Iterable<T> {
     public int head;
-    public ArrayList<T> arr;
+    public T[]arr;
 
     public CircularArray(){
         head=0;
-        arr=new ArrayList<>(0);
+        arr= (T[])new Object[0];
     }
 
     public CircularArray(int size){
         head =0;
-        arr = new ArrayList<>(size);
+        arr = (T[]) new Object[size];
     }
 
     public int convertHead(int shift){
         if(shift<0){
-            shift+=arr.size();
+            shift+=arr.length;
         }
-        return (head+shift)%arr.size();
+        if(head==0 && shift ==0){
+            return 0;
+        }
+        return (head+shift)%arr.length;
     }
 
     public void rotate(int shiftRight){
@@ -29,14 +32,14 @@ public class CircularArray <T> implements Iterable<T> {
     }
 
     public T get(int i){
-        if(i<0 || i>=arr.size()){
+        if(i<0 || i>=arr.length){
             throw new IndexOutOfBoundsException();
         }
-        return arr.get(convertHead(i));
+        return arr[convertHead(i)];
     }
 
     public void set(int index, T el){
-        arr.set(convertHead(index),el);
+        arr[convertHead(index)] = el;
     }
 
     /**
@@ -55,13 +58,13 @@ public class CircularArray <T> implements Iterable<T> {
 
         @Override
         public boolean hasNext() {
-            return ind<arr.size()-1;
+            return ind<arr.length-1;
         }
 
         @Override
         public T next() {
             ind++;
-            return (T) arr.get(convertHead(ind));
+            return (T) arr[convertHead(ind)];
         }
 
         @Override
