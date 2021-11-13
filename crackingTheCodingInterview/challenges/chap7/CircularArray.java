@@ -28,4 +28,10 @@ public class CircularArray <T> {
         }
         return arr.get(convertHead(i));
     }
+
+    /**
+     * In order to iterate using for(Object o : arr){},
+     * we need to implement an iterator
+     */
+
 }
