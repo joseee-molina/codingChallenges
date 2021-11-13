@@ -20,7 +20,7 @@ public class CircularArrayTest extends CircularArray {
             System.out.print(i + " ");
         }
         System.out.println();
-        // test finished
+        // test finished, it is working
 
     }
 
