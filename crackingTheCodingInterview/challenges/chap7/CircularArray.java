@@ -8,8 +8,13 @@ public class CircularArray <T> implements Iterable<T> {
     public ArrayList<T> arr;
 
     public CircularArray(){
+        head=0;
+        arr=new ArrayList<>(0);
+    }
+
+    public CircularArray(int size){
         head =0;
-        arr = new ArrayList<>();
+        arr = new ArrayList<>(size);
     }
 
     public int convertHead(int shift){
@@ -28,6 +33,10 @@ public class CircularArray <T> implements Iterable<T> {
             throw new IndexOutOfBoundsException();
         }
         return arr.get(convertHead(i));
+    }
+
+    public void set(int index, T el){
+        arr.set(convertHead(index),el);
     }
 
     /**
