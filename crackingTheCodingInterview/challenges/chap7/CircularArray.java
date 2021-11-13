@@ -1,8 +1,9 @@
 package chap7;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class CircularArray <T> {
+public class CircularArray <T> implements Iterable<T> {
     public int head;
     public ArrayList<T> arr;
 
@@ -33,5 +34,31 @@ public class CircularArray <T> {
      * In order to iterate using for(Object o : arr){},
      * we need to implement an iterator
      */
+    public Iterator<T> iterator(){
+        return new CircularArrayIterator<T>();
+    }
+
+    private class CircularArrayIterator<T> implements Iterator<T>{
+        private int ind = -1;
+
+        public CircularArrayIterator(){
+        }
+
+        @Override
+        public boolean hasNext() {
+            return ind<arr.size()-1;
+        }
+
+        @Override
+        public T next() {
+            ind++;
+            return (T) arr.get(convertHead(ind));
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException("Remove is not supported");
+        }
+    }
 
 }
