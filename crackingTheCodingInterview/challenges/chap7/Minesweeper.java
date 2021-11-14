@@ -13,19 +13,19 @@ public class Minesweeper {
      */
 
     int[][] board;
-    boolean[][] coveredPieces;
+    boolean[][] uncoveredPieces;
     int size;
 
     public Minesweeper(int size){
         board = new int[size][size];
-        coveredPieces = new boolean[size][size];
+        uncoveredPieces = new boolean[size][size];
         this.size=size;
     }
     public Minesweeper(){
         int size = 8;
         this.size=size;
         board = new int[size][size];
-        coveredPieces = new boolean[size][size];
+        uncoveredPieces = new boolean[size][size];
     }
 
     public void printBoard(){
@@ -38,9 +38,18 @@ public class Minesweeper {
 
         for(int i = 0 ;i<size;i++){
             for(int j = 0 ; j<size;j++){
-                if(coveredPieces[i][j]==true){
+                if(uncoveredPieces[i][j]==false){
                     System.out.print('.' + " ");
+                    continue;
                 }
+                //3 for mine there
+                if(board[i][j]==3){
+                    System.out.print("*" + " ");
+                }
+                if(board[i][j]==0){
+                    System.out.print(" "+ " ");
+                }
+                System.out.print(board[i][j]+" ");
             }
             System.out.println();
         }
