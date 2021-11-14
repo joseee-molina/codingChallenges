@@ -7,25 +7,39 @@ public class Minesweeper {
      * then add them, then add the surrounding numbers. For playing, whenever we choose to
      * uncover a cell, first we need to see if that is already uncovered. If it is not,
      * we can uncover it and show it. If not, we can show a dot .
+     * 3 = mine
      * whenever we uncover a blank cell, we can uncover everything surrounding that blank cell,
      * if it is just a number, then just show it.
+     * We can uncover blank cells using the BFS, storing the indexes to visit in some set,
+     * and running a while loop on them
+     *
+     * 1. Put the mines
+     * 2. Put surrounding numbers
+     * 
+     * 3. Uncover pieces mechanism
+     *
      * Sunday 14/11/2021 I'm gonna start with the board
+     *
+     *
      */
 
     int[][] board;
     boolean[][] uncoveredPieces;
     int size;
+    int numberOfMines;
 
-    public Minesweeper(int size){
+    public Minesweeper(int size, int numberOfMines){
         board = new int[size][size];
         uncoveredPieces = new boolean[size][size];
         this.size=size;
+        this.numberOfMines=numberOfMines;
     }
     public Minesweeper(){
         int size = 8;
         this.size=size;
         board = new int[size][size];
         uncoveredPieces = new boolean[size][size];
+        this.numberOfMines=3;
     }
 
     public void printBoard(){
@@ -33,7 +47,7 @@ public class Minesweeper {
          * . = not shown
          * 1 = 1 mine around
          * 2 = 2 mines around
-         * * = mine
+         * * = mine = 3 in the board[][]
          */
 
         for(int i = 0 ;i<size;i++){
@@ -53,7 +67,6 @@ public class Minesweeper {
             }
             System.out.println();
         }
-
     }
 
 }
