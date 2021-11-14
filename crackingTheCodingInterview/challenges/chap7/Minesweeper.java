@@ -12,16 +12,19 @@ public class Minesweeper {
      * Sunday 14/11/2021 I'm gonna start with the board
      */
 
-    char[][] board;
+    int[][] board;
     boolean[][] coveredPieces;
+    int size;
 
     public Minesweeper(int size){
-        board = new char[size][size];
+        board = new int[size][size];
         coveredPieces = new boolean[size][size];
+        this.size=size;
     }
     public Minesweeper(){
         int size = 8;
-        board = new char[size][size];
+        this.size=size;
+        board = new int[size][size];
         coveredPieces = new boolean[size][size];
     }
 
@@ -33,7 +36,14 @@ public class Minesweeper {
          * * = mine
          */
 
-        for(int i = 0 ;)
+        for(int i = 0 ;i<size;i++){
+            for(int j = 0 ; j<size;j++){
+                if(coveredPieces[i][j]==true){
+                    System.out.print('.' + " ");
+                }
+            }
+            System.out.println();
+        }
 
     }
 
