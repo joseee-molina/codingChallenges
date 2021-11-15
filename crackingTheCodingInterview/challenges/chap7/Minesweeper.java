@@ -1,4 +1,5 @@
 package chap7;
+import java.util.Random;
 
 public class Minesweeper {
 
@@ -15,7 +16,7 @@ public class Minesweeper {
      *
      * 1. Put the mines
      * 2. Put surrounding numbers
-     * 
+     *
      * 3. Uncover pieces mechanism
      *
      * Sunday 14/11/2021 I'm gonna start with the board
@@ -40,6 +41,23 @@ public class Minesweeper {
         board = new int[size][size];
         uncoveredPieces = new boolean[size][size];
         this.numberOfMines=3;
+    }
+
+    public void putMines(){
+        for(int i = 0 ; i<numberOfMines;i++){
+            Random rand = new Random();
+            int randnum = rand.nextInt(size*size);
+            int counter = 0 ;
+            for(int j = 0 ; j<size;j++){
+                for(int k = 0; k<size;k++){
+                    if(counter==randnum){
+                        board[j][k]=3;
+                        break;
+                    }
+                    counter++;
+                }
+            }
+        }
     }
 
     public void printBoard(){
