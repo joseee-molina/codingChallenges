@@ -71,8 +71,9 @@ public class Minesweeper {
     }
 
     public void putMines(){
+        Random rand = new Random(1);
         for(int i = 0 ; i<=numberOfMines;i++){
-            Random rand = new Random();
+
             int randnum = rand.nextInt(size*size);
             int counter = 0 ;
 

@@ -12,6 +12,8 @@ public class MinesweeperTest extends Minesweeper {
         m.prepareGame();
         m.printBoard();
 
+        //nice! Tomorrow i will add the uncovering
+
     }
 
 }
