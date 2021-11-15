@@ -8,7 +8,7 @@ public class Minesweeper {
      * then add them, then add the surrounding numbers. For playing, whenever we choose to
      * uncover a cell, first we need to see if that is already uncovered. If it is not,
      * we can uncover it and show it. If not, we can show a dot .
-     * 3 = mine
+     * -1 = mine
      * whenever we uncover a blank cell, we can uncover everything surrounding that blank cell,
      * if it is just a number, then just show it.
      * We can uncover blank cells using the BFS, storing the indexes to visit in some set,
@@ -45,6 +45,29 @@ public class Minesweeper {
 
     public void prepareGame(){
         putMines();
+        putNumsAroundMines();
+    }
+
+
+    public void putNumsAroundMines(){
+
+        for(int i = 0 ; i<size;i++){
+            for (int j = 0 ; j<size;j++){
+                int num = 0 ;
+                if(i+1<size && board[i+1][j]==-1) num++;
+                if(i+1<size && j+1<size && board[i+1][j+1]==-1) num++;
+                if(j+1<size && board[i][j+1]==-1) num++;
+                if(i-1>=0 && board[i-1][j]==-1) num++;
+                if(j-1>=0 && board[i][j-1]==-1) num++;
+                if(i-1>=0 && j-1>=0 && board[i-1][j-1]==-1) num++;
+                if(i+1<size && j-1>=0 && board[i+1][j-1]==-1) num++;
+                if(i-1>=0 && j+1<size && board[i-1][j+1]==-1) num++;
+                if(board[i][j]!=-1){
+                    board[i][j] = num;
+
+                }
+            }
+        }
     }
 
     public void putMines(){
@@ -56,7 +79,7 @@ public class Minesweeper {
             for(int j = 0 ; j<size;j++){
                 for(int k = 0; k<size;k++){
                     if(counter==randnum){
-                        board[j][k]=3;
+                        board[j][k]=-1;
                         break;
                     }
                     counter++;
@@ -73,7 +96,7 @@ public class Minesweeper {
          * . = not shown
          * 1 = 1 mine around
          * 2 = 2 mines around
-         * * = mine = 3 in the board[][]
+         * * = mine = -1 in the board[][]
          */
 
         for(int i = 0 ;i<size;i++){
@@ -82,16 +105,20 @@ public class Minesweeper {
                     System.out.print('.' + " ");
                     continue;
                 }**/
-                //3 for mine there
-                if(board[i][j]==3){
+                //-1 for mine there
+                if(board[i][j]==-1){
                     System.out.print("*" + " ");
                     continue;
                 }
-                /**if(board[i][j]==0){
-                    System.out.print(" "+ " ");
+                if(board[i][j]==0){
+                    System.out.print("0 ");
+                    //Correct one!!
+                    // System.out.print(" "+ " ");
 
-                }**/
-                System.out.print(board[i][j]+" ");
+                }
+                if(board[i][j]!=0){
+                    System.out.print(board[i][j]+" ");
+                }
             }
             System.out.println();
         }

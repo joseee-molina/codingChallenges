@@ -10,7 +10,6 @@ public class MinesweeperTest extends Minesweeper {
     public void initialTest(){
         Minesweeper m = new Minesweeper(8,4);
         m.prepareGame();
-
         m.printBoard();
 
     }
