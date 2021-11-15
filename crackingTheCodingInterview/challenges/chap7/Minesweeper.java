@@ -43,11 +43,16 @@ public class Minesweeper {
         this.numberOfMines=3;
     }
 
+    public void prepareGame(){
+        putMines();
+    }
+
     public void putMines(){
-        for(int i = 0 ; i<numberOfMines;i++){
+        for(int i = 0 ; i<=numberOfMines;i++){
             Random rand = new Random();
             int randnum = rand.nextInt(size*size);
             int counter = 0 ;
+
             for(int j = 0 ; j<size;j++){
                 for(int k = 0; k<size;k++){
                     if(counter==randnum){
@@ -55,6 +60,9 @@ public class Minesweeper {
                         break;
                     }
                     counter++;
+                }
+                if(counter==randnum){
+                    break;
                 }
             }
         }
@@ -70,17 +78,19 @@ public class Minesweeper {
 
         for(int i = 0 ;i<size;i++){
             for(int j = 0 ; j<size;j++){
-                if(uncoveredPieces[i][j]==false){
+                /**if(uncoveredPieces[i][j]==false){
                     System.out.print('.' + " ");
                     continue;
-                }
+                }**/
                 //3 for mine there
                 if(board[i][j]==3){
                     System.out.print("*" + " ");
+                    continue;
                 }
-                if(board[i][j]==0){
+                /**if(board[i][j]==0){
                     System.out.print(" "+ " ");
-                }
+
+                }**/
                 System.out.print(board[i][j]+" ");
             }
             System.out.println();

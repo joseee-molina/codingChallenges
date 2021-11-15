@@ -8,8 +8,11 @@ public class MinesweeperTest extends Minesweeper {
     @Test
 
     public void initialTest(){
-        Minesweeper m = new Minesweeper();
+        Minesweeper m = new Minesweeper(8,4);
+        m.prepareGame();
+
         m.printBoard();
+
     }
 
 }
