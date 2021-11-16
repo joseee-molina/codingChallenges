@@ -1,4 +1,5 @@
 package chap7;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Minesweeper {
@@ -14,8 +15,8 @@ public class Minesweeper {
      * We can uncover blank cells using the BFS, storing the indexes to visit in some set,
      * and running a while loop on them
      *
-     * 1. Put the mines
-     * 2. Put surrounding numbers
+     * 1. Put the mines - done
+     * 2. Put surrounding numbers - done
      *
      * 3. Uncover pieces mechanism
      *
@@ -35,6 +36,7 @@ public class Minesweeper {
         this.size=size;
         this.numberOfMines=numberOfMines;
     }
+
     public Minesweeper(){
         int size = 8;
         this.size=size;
@@ -48,6 +50,48 @@ public class Minesweeper {
         putNumsAroundMines();
     }
 
+    public void uncoverBlankArea(int i, int j){
+        ArrayList<ArrayList<Integer>> coords = new ArrayList<>();
+        ArrayList<Integer> singleCoord = new ArrayList<>();
+        if(i+1<size){
+            singleCoord.add(i+1);
+            singleCoord.add(j);
+            coords.add(singleCoord);
+        }
+        if(i-1>=0){
+            singleCoord= new ArrayList<>();
+            singleCoord.add(i-1);
+            singleCoord.add(j);
+            coords.add(singleCoord);
+        }
+        if(j+1<size){
+            singleCoord=new ArrayList<>();
+            singleCoord.add(i);
+            singleCoord.add(j+1);
+            coords.add(singleCoord);
+
+        }
+        if(j-1>=0){
+            singleCoord=new ArrayList<>();
+            singleCoord.add(i);
+            singleCoord.add(j-1);
+            coords.add(singleCoord);
+
+        }
+    }
+
+
+    public void uncoverPiece(int i, int j){
+        if(uncoveredPieces[i][j]==true){
+            System.out.println("This piece is already uncovered! Choose another one");
+            return;
+        }
+        uncoveredPieces[i][j] = true;
+        if(board[i][j] == 0){
+            //uncover all surrounding white area up left right and down
+
+        }
+    }
 
     public void putNumsAroundMines(){
 
@@ -102,10 +146,13 @@ public class Minesweeper {
 
         for(int i = 0 ;i<size;i++){
             for(int j = 0 ; j<size;j++){
-                /**if(uncoveredPieces[i][j]==false){
+                ///**
+
+                if(uncoveredPieces[i][j]==false){
                     System.out.print('.' + " ");
                     continue;
-                }**/
+                }
+                 //**/
                 //-1 for mine there
                 if(board[i][j]==-1){
                     System.out.print("*" + " ");
@@ -123,6 +170,7 @@ public class Minesweeper {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
 }
