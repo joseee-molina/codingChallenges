@@ -26,6 +26,7 @@ public class Minesweeper {
      * 4. Uncover mines mechanism, check when we lose or win!
      * Sunday 14/11/2021 I'm gonna start with the board
      *
+     * 
      *
      */
 
