@@ -21,8 +21,9 @@ public class Minesweeper {
      * 1. Put the mines - done
      * 2. Put surrounding numbers - done
      *
-     * 3. Uncover pieces mechanism
+     * 3. Uncover pieces mechanism - done
      *
+     * 4. Uncover mines mechanism, check when we lose or win!
      * Sunday 14/11/2021 I'm gonna start with the board
      *
      *
