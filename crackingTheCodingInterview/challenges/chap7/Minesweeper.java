@@ -1,5 +1,8 @@
 package chap7;
+import edu.princeton.cs.algs4.In;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 
 public class Minesweeper {
@@ -50,34 +53,65 @@ public class Minesweeper {
         putNumsAroundMines();
     }
 
-    public void uncoverBlankArea(int i, int j){
-        ArrayList<ArrayList<Integer>> coords = new ArrayList<>();
+    public void check4SidesAndFillArray(int i, int j, ArrayList<ArrayList<Integer>> coords, HashSet<ArrayList<Integer>> visited){
         ArrayList<Integer> singleCoord = new ArrayList<>();
-        if(i+1<size){
+        if(i+1<size && board[i+1][j]==0){
             singleCoord.add(i+1);
             singleCoord.add(j);
-            coords.add(singleCoord);
+            if(!visited.contains(singleCoord)){
+                coords.add(singleCoord);
+                visited.add(singleCoord);
+                uncoveredPieces[i+1][j]=true;
+            }
         }
-        if(i-1>=0){
+        if(i-1>=0 && board[i-1][j]==0){
             singleCoord= new ArrayList<>();
             singleCoord.add(i-1);
             singleCoord.add(j);
-            coords.add(singleCoord);
+            if(!visited.contains(singleCoord)){
+                coords.add(singleCoord);
+                visited.add(singleCoord);
+                uncoveredPieces[i-1][j]=true;
+            }
         }
-        if(j+1<size){
+        if(j+1<size && board[i][j+1]==0){
             singleCoord=new ArrayList<>();
             singleCoord.add(i);
             singleCoord.add(j+1);
-            coords.add(singleCoord);
-
+            if(!visited.contains(singleCoord)){
+                coords.add(singleCoord);
+                visited.add(singleCoord);
+                uncoveredPieces[i][j+1]=true;
+            }
         }
-        if(j-1>=0){
+        if(j-1>=0 && board[i][j-1]==0){
             singleCoord=new ArrayList<>();
             singleCoord.add(i);
             singleCoord.add(j-1);
-            coords.add(singleCoord);
-
+            if(!visited.contains(singleCoord)){
+                coords.add(singleCoord);
+                visited.add(singleCoord);
+                uncoveredPieces[i][j-1]=true;
+            }
         }
+    }
+
+    public void uncoverBlankArea(int i, int j){
+        ArrayList<ArrayList<Integer>> coords = new ArrayList<>();
+        HashSet<ArrayList<Integer>> visited = new HashSet<>();
+        check4SidesAndFillArray(i,j,coords,visited);
+
+        while(!coords.isEmpty()){
+            ArrayList<ArrayList<Integer>> childrenCoordinates = new ArrayList<>();
+            for(int k = 0 ; k<coords.size();k++){
+                ArrayList<Integer> currentCoord = coords.get(k);
+                int x = currentCoord.get(0);
+                int y = currentCoord.get(1);
+                check4SidesAndFillArray(x,y,childrenCoordinates,visited);
+            }
+            coords = childrenCoordinates;
+        }
+
     }
 
 
@@ -89,7 +123,7 @@ public class Minesweeper {
         uncoveredPieces[i][j] = true;
         if(board[i][j] == 0){
             //uncover all surrounding white area up left right and down
-
+            uncoverBlankArea(i,j);
         }
     }
 
@@ -152,7 +186,7 @@ public class Minesweeper {
                     System.out.print('.' + " ");
                     continue;
                 }
-                 //**/
+                // **/
                 //-1 for mine there
                 if(board[i][j]==-1){
                     System.out.print("*" + " ");
