@@ -30,11 +30,11 @@ public class Minesweeper {
      *
      */
 
-    int[][] board;
-    boolean[][] uncoveredPieces;
-    int size;
-    int numberOfMines;
-    int lifeCount;
+    private int[][] board;
+    private boolean[][] uncoveredPieces;
+    private int size;
+    private int numberOfMines;
+    private int lifeCount;
 
     public Minesweeper(int size, int numberOfMines, int lifeCount){
         board = new int[size][size];
@@ -126,10 +126,21 @@ public class Minesweeper {
             System.out.println("This piece is already uncovered! Choose another one");
             return;
         }
+        if(lifeCount==0){
+            System.out.println("Game over, create a new game");
+            return;
+        }
         uncoveredPieces[i][j] = true;
         if(board[i][j] == 0){
             //uncover all surrounding white area up left right and down
             uncoverBlankArea(i,j);
+        }
+        if(board[i][j]==-1){
+            lifeCount--;
+            System.out.println("life count now is "+lifeCount);
+            if(lifeCount==0){
+                System.out.println("Game over!!");
+            }
         }
 
     }
