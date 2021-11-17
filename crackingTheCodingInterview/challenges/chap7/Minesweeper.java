@@ -35,6 +35,7 @@ public class Minesweeper {
     private int size;
     private int numberOfMines;
     private int lifeCount;
+    private int numberOfUncovered;
 
     public Minesweeper(int size, int numberOfMines, int lifeCount){
         board = new int[size][size];
@@ -42,6 +43,7 @@ public class Minesweeper {
         this.size=size;
         this.numberOfMines=numberOfMines;
         this.lifeCount=lifeCount;
+        numberOfUncovered = 0 ;
     }
 
     public Minesweeper(){
@@ -51,6 +53,8 @@ public class Minesweeper {
         uncoveredPieces = new boolean[size][size];
         this.numberOfMines=3;
         lifeCount = 3;
+        numberOfUncovered = 0 ;
+
     }
 
     public void prepareGame(){
@@ -130,6 +134,10 @@ public class Minesweeper {
             System.out.println("Game over, create a new game");
             return;
         }
+        if(numberOfUncovered+numberOfMines==size*size){
+            System.out.println("YOU WON!!!! CONGRATS");
+            return;
+        }
         uncoveredPieces[i][j] = true;
         if(board[i][j] == 0){
             //uncover all surrounding white area up left right and down
@@ -140,9 +148,16 @@ public class Minesweeper {
             System.out.println("life count now is "+lifeCount);
             if(lifeCount==0){
                 System.out.println("Game over!!");
+                return;
             }
+            return;
         }
-
+        //TODO: check if won game
+        numberOfUncovered++;
+        if(numberOfUncovered+numberOfMines==size*size){
+            System.out.println("YOU WON!!!! CONGRATS");
+            return;
+        }
     }
 
     public void putNumsAroundMines(){
