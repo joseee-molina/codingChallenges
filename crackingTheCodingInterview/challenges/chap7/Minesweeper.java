@@ -71,6 +71,7 @@ public class Minesweeper {
                 coords.add(singleCoord);
                 visited.add(singleCoord);
                 uncoveredPieces[i+1][j]=true;
+                numberOfUncovered++;
             }
         }
         if(i-1>=0 && board[i-1][j]==0){
@@ -81,6 +82,7 @@ public class Minesweeper {
                 coords.add(singleCoord);
                 visited.add(singleCoord);
                 uncoveredPieces[i-1][j]=true;
+                numberOfUncovered++;
             }
         }
 
@@ -92,6 +94,7 @@ public class Minesweeper {
                 coords.add(singleCoord);
                 visited.add(singleCoord);
                 uncoveredPieces[i][j+1]=true;
+                numberOfUncovered++;
             }
         }
         if(j-1>=0 && board[i][j-1]==0){
@@ -102,6 +105,7 @@ public class Minesweeper {
                 coords.add(singleCoord);
                 visited.add(singleCoord);
                 uncoveredPieces[i][j-1]=true;
+                numberOfUncovered++;
             }
         }
     }
@@ -134,7 +138,7 @@ public class Minesweeper {
             System.out.println("Game over, create a new game");
             return;
         }
-        if(numberOfUncovered+numberOfMines==size*size){
+        if(numberOfUncovered+numberOfMines-1==size*size){
             System.out.println("YOU WON!!!! CONGRATS");
             return;
         }
@@ -154,7 +158,7 @@ public class Minesweeper {
         }
         //TODO: check if won game
         numberOfUncovered++;
-        if(numberOfUncovered+numberOfMines==size*size){
+        if(numberOfUncovered+numberOfMines-1==size*size){
             System.out.println("YOU WON!!!! CONGRATS");
             return;
         }
@@ -183,7 +187,7 @@ public class Minesweeper {
 
     public void putMines(){
         Random rand = new Random(1);
-        for(int i = 0 ; i<=numberOfMines;i++){
+        for(int i = 0 ; i<numberOfMines;i++){
 
             int randnum = rand.nextInt(size*size);
             int counter = 0 ;
