@@ -25,11 +25,8 @@ public class MinesweeperTest extends Minesweeper {
         m.uncoverPiece(2,2);
         m.uncoverPiece(3,3);
 
-
-
-
-
         m.printBoard();
+        //It was fun!
     }
 
 }
