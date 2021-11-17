@@ -26,7 +26,7 @@ public class Minesweeper {
      * 4. Uncover mines mechanism, check when we lose or win!
      * Sunday 14/11/2021 I'm gonna start with the board
      *
-     * 
+     *
      *
      */
 
@@ -34,12 +34,14 @@ public class Minesweeper {
     boolean[][] uncoveredPieces;
     int size;
     int numberOfMines;
+    int lifeCount;
 
-    public Minesweeper(int size, int numberOfMines){
+    public Minesweeper(int size, int numberOfMines, int lifeCount){
         board = new int[size][size];
         uncoveredPieces = new boolean[size][size];
         this.size=size;
         this.numberOfMines=numberOfMines;
+        this.lifeCount=lifeCount;
     }
 
     public Minesweeper(){
@@ -48,6 +50,7 @@ public class Minesweeper {
         board = new int[size][size];
         uncoveredPieces = new boolean[size][size];
         this.numberOfMines=3;
+        lifeCount = 3;
     }
 
     public void prepareGame(){
@@ -76,6 +79,7 @@ public class Minesweeper {
                 uncoveredPieces[i-1][j]=true;
             }
         }
+
         if(j+1<size && board[i][j+1]==0){
             singleCoord=new ArrayList<>();
             singleCoord.add(i);
@@ -127,6 +131,7 @@ public class Minesweeper {
             //uncover all surrounding white area up left right and down
             uncoverBlankArea(i,j);
         }
+
     }
 
     public void putNumsAroundMines(){
