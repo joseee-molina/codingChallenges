@@ -8,6 +8,19 @@ public class _8_2_RobotPath {
     a path so that it can arrive its destination.
 
     ------------------------------------------------------------------------
-    
+    a program that comes to my mind is:
+
+    {
+        if(arrivedToDestination){
+            print it and finish the game
+        }
+        if(cangoright){
+            goright() //this until we find we cannot, we go down, if not possible, we dont go
+        }
+        if(cangodown){
+
+        }
+    }
+        but since it is late today, i will implement it tomorrow
      */
 }
