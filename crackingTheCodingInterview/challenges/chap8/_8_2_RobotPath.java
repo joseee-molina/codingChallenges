@@ -30,8 +30,30 @@ public class _8_2_RobotPath {
 
     }
 
+
+
     public void pathHelper(int[][] board, int i, int j){
-        
+        int cols = board[0].length;
+        int rows = board.length;
+        if(i==rows-1 && j == cols-1){
+            System.out.println("Congrats, arrived!!!");
+            return;
+        }
+        if(i+1<rows && board[i+1][j]!=1){
+            pathHelper(board,i+1,j);
+        }
+        if(j+1<cols && board[i][j+1]!=1){
+            pathHelper(board, i, j+1);
+        }
+    }
+
+    public void print2DArr(int[][] arr){
+        for(int i = 0 ; i<arr.length;i++){
+            for(int j = 0 ; j<arr[0].length;j++){
+                System.out.print(arr[i][j]+" ");
+            }
+            System.out.println();
+        }
     }
 
 }
