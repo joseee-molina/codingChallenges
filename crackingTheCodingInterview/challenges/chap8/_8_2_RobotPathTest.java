@@ -12,5 +12,6 @@ public class _8_2_RobotPathTest extends _8_2_RobotPath {
         board1[1][1] = 1;
         print2DArr(board1);
         findPathToEnd(board1);
+        //cool, worked. You can try with you own solutions
     }
 }
