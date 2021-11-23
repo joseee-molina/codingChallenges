@@ -23,4 +23,15 @@ public class _8_2_RobotPath {
     }
         but since it is late today, i will implement it tomorrow
      */
+
+    public void findPathToEnd(int[][] board){
+        //0 for no problem, 1 for cannot pass
+        pathHelper(board, 0,0);
+
+    }
+
+    public void pathHelper(int[][] board, int i, int j){
+        
+    }
+
 }
