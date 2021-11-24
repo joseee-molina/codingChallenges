@@ -13,6 +13,7 @@ public class _8_3_MagicIndex {
     - LOWER, then it means that everything before it is lower than the indexes, so we
     need to check the second half, and so on.
 
-    Doing this binary search will take us log(N) time to implement
+    Doing this binary search will take us log(N) time to implement.
      */
+    //TODO: implement binary search
 }
