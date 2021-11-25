@@ -16,4 +16,25 @@ public class _8_3_MagicIndex {
     Doing this binary search will take us log(N) time to implement.
      */
     //TODO: implement binary search
+
+    public int findMagicIndex(int[] arr){
+        return findMagicIndexHelper(arr,0,arr.length-1);
+    }
+
+    public int findMagicIndexHelper(int[] arr, int low, int hi){
+        int middle = low + (hi-low)/2;
+        if(arr[middle] ==middle){
+            return middle;
+        }
+        if(middle < arr[middle]){
+            //check first half
+            return findMagicIndexHelper(arr,low,middle);
+        }
+        if(middle > arr[middle]){
+            //check second half
+            return findMagicIndexHelper(arr,middle,hi);
+        }
+        return 0;
+    }
+
 }
