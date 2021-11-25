@@ -11,7 +11,11 @@ public class _8_3_MagicIndexTest extends _8_3_MagicIndex {
         //System.out.println(findMagicIndex(arr1));
 
         int[] arr2 = {0};
-        System.out.println(findMagicIndex(arr2));
+        //System.out.println(findMagicIndex(arr2));
+
+        int[] arr3 = {};
+        //System.out.println(findMagicIndex(arr3));
+
     }
 
 }

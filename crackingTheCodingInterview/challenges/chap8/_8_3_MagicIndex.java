@@ -18,6 +18,9 @@ public class _8_3_MagicIndex {
     //TODO: implement binary search
 
     public int findMagicIndex(int[] arr){
+        if(arr.length==0){
+            throw new IllegalArgumentException();
+        }
         return findMagicIndexHelper(arr,0,arr.length-1);
     }
 
