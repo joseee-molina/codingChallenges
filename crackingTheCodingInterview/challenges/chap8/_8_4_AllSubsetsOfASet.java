@@ -1,5 +1,8 @@
 package chap8;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 public class _8_4_AllSubsetsOfASet {
     /**
      * This is recursive:
@@ -10,4 +13,32 @@ public class _8_4_AllSubsetsOfASet {
      * if set empty, the subset is itself,
      * if set 1 element, the subsets is the empty and the itself
      */
+
+    public void printAllSubsetsOfSet(HashSet<Integer> set){
+        ArrayList setArr = new ArrayList();
+        for(int x : set) {
+            setArr.add(x);
+        }
+
+    }
+    public void printSubset(int[] subset){
+        for(int x:subset){
+            if(x!=Integer.MIN_VALUE){
+                System.out.print(x+" ");
+            }
+        }
+    }
+
+    private void subsetsHelper(ArrayList<Integer> set, int[] subset, int index){
+        if(index==set.size()){
+            printSubset(subset);
+            System.out.println();
+        }
+        subset[index] = Integer.MIN_VALUE;
+        subsetsHelper(set,subset,index+1);
+        subset[index] = set.get(index);
+        subsetsHelper(set,subset,index+1);
+
+    }
+
 }
