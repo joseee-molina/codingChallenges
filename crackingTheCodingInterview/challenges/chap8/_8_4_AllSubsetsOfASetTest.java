@@ -14,6 +14,7 @@ public class _8_4_AllSubsetsOfASetTest extends _8_4_AllSubsetsOfASet {
         set1.add(2);
         set1.add(3);
         printAllSubsetsOfSet(set1);
+        //it worked!!
     }
 
 }
