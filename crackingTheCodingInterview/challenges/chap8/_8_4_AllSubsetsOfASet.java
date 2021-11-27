@@ -19,9 +19,10 @@ public class _8_4_AllSubsetsOfASet {
         for(int x : set) {
             setArr.add(x);
         }
+        subsetsHelper(setArr,new int[set.size()],0);
 
     }
-    public void printSubset(int[] subset){
+    private void printSubset(int[] subset){
         for(int x:subset){
             if(x!=Integer.MIN_VALUE){
                 System.out.print(x+" ");
@@ -33,12 +34,12 @@ public class _8_4_AllSubsetsOfASet {
         if(index==set.size()){
             printSubset(subset);
             System.out.println();
+            return;
         }
         subset[index] = Integer.MIN_VALUE;
         subsetsHelper(set,subset,index+1);
         subset[index] = set.get(index);
         subsetsHelper(set,subset,index+1);
-
     }
 
 }
