@@ -24,7 +24,7 @@ public class _8_4_AllSubsetsOfASet {
     }
     private void printSubset(int[] subset){
         for(int x:subset){
-            if(x!=Integer.MIN_VALUE){
+            if(x!=Integer.MIN_VALUE && 1>0){
                 System.out.print(x+" ");
             }
         }
