@@ -10,7 +10,8 @@ public class _8_6_TowersOfHanoi {
     The base case is when we have only one disk, then we just move it. When we have two disks, then we move
     one to tower 3 then the other t 2 then the 3 to 2.
     And the process is similar for all of the others, it is just that we need to solve it
-    recursively
+    recursively.
+    Let's work on this later, now I have to study too much
      */
 }
 
